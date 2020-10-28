@@ -2,7 +2,7 @@
 
 `include "31_alu.v"
 `include "32_gen_branch_signal.v"
-`include "33_sequencer"
+`include "33_sequencer.v"
 
 module execute(
     input wire clk,
