@@ -20,7 +20,7 @@ module execute(
     input wire write_reg,
     input wire [2:0]info_load,
     input wire [1:0]info_store,
-    input wire [2:0]info_branch,
+    input wire [3:0]info_branch,
     input wire [4:0]dstreg_addr,
 
     output reg [31:0] alu_result,

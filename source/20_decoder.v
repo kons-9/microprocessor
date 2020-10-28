@@ -19,7 +19,7 @@ module decoder(
     output reg write_reg,       // レジスタ書き込みの有無
     output reg [2:0] info_load,      // infomation of load, default is NOTLOAD
     output reg [1:0] info_store,     // infomation of store, default is NOTSTORE
-    output reg [2:0] info_branch,    // infomation of branch, default is NOTBRANCH
+    output reg [3:0] info_branch,    // infomation of branch, default is NOTBRANCH
     output reg [31:0] pc2
     );
 

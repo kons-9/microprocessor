@@ -8,7 +8,7 @@ module sequencer(
     input wire [31:0]notbranch,
 
     output wire [31:0]npc
-    }
+    );
 
     assign npc = branch_signal ? branch : notbranch;
 

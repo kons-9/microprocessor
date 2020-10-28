@@ -17,29 +17,26 @@
         $display("%s test passed\n", name); \
 
 `include "99_define.v"
-`include "31_alu.v"
 
 module alu_tb;
 
-    reg clk;
-    reg [5:0] code;
+    reg [3:0] code;
     reg [31:0] op1;
     reg [31:0] op2;
-    wire [31:0]  result;
-    wire br;
+    wire [31:0] result;
 
     alu alu(
        .alucode(code),
        .r1(op1),
        .r2(op2),
-       .imm(result),
+       .pc(32'd0),
+       .imm(32'd0),
        .using_r2(`TRUE),
        .using_pc(`FALSE),
        .alu_result(result)
     );
 
     initial begin
-        clk<=0;
         // -----------------------------
         // arithmetic operations
         // -----------------------------
@@ -73,10 +70,10 @@ module alu_tb;
         // logical operations
         // -----------------------------
         code = `XOR;
-        op1 = 32'hBADCAB1E;
+        op1 = 32'hBADCAB1F;
         op2 = 32'hFEEDFACE;
         #10;
-        `test("XOR", 32'h443151d0)
+        `test("XOR", 32'h443151d1)
         
         code = `OR;
         op1 = 32'hBADCAB1E;

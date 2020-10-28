@@ -19,15 +19,17 @@ module alu(
     assign x = using_pc ? pc : r1;//pc or r1
     assign y = using_r2 ? r2 : imm;//r2 or imm
 
-    assign alu_result = ans(x,y);
+    assign alu_result = ans(x,y,alucode);
 
     function [31:0]ans;
-        input[31:0] x,y;
+        input [31:0] x,y;
+        input [3:0]alucode;
+        
         case(alucode)
             `ADD: ans = x+y;
             `SUB: ans= x-y;
-            `SLT: ans= x < y;
-            `SLTu: ans = $signed(x)<$signed(y);
+            `SLT: ans= ($signed(x) < $signed(y));
+            `SLTu: ans = $unsigned(x)<$unsigned(y);
             `SLL: ans = x<<y[4:0];
             `SRL: ans = x>>y[4:0];
             `SRA: ans = $signed(x)>>>$signed(y[4:0]); 

@@ -1,25 +1,30 @@
 `timescale 1ns / 1ps
 
+`include "99_define.v"
+
 module gen_branch_signal(
-    input wire [2:0]info_branch,
+    input wire [3:0]info_branch,
     input wire [31:0] reg1,
     input wire [31:0] reg2,
 
     output wire branch_signal
-    )
-    wire eq,sl,slu;
+    );
+    wire eq;
+    wire sl;
+    wire slu;
 
     assign eq = (reg1 == reg2);
-    assign sl = (reg1<reg2);
-    assign slu = ((signed)reg1<(signed)reg2);
+    assign sl = ($signed(reg1)<$signed(reg2));
+    assign slu = ($unsigned(reg1)<$unsigned(reg2));
 
     assign branch_signal = gen_signal(info_branch,eq,sl,slu);
 
     function gen_signal;
-        input [2:0]info_branch;
+        input [3:0]info_branch;
         input eq;
         input sl;
         input slu;
+        
         case(info_branch)
             `Beq: gen_signal = eq;
             `Bne: gen_signal = ~eq;

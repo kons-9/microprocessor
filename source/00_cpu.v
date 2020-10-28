@@ -40,7 +40,7 @@ module cpu(
     wire write_reg;
     wire [2:0] info_load;
     wire [1:0] info_store;
-    wire [2:0] info_branch;
+    wire [3:0] info_branch;
     wire [31:0] pc2;
     //decode
     decoder decoder0(
