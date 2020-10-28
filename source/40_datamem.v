@@ -1,26 +1,24 @@
-
+`timescale 1ns / 1ps
 `include "41_load.v"
 `include "99_define.v"
 parameter FILENAME "";
 
 module datamem(
     input wire clk,
+    input wire [31:0]next_pc,
     input wire[2:0]info_load,
     input wire[1:0]info_store,
     input wire[31:0]alu_result,
     input wire[31:0]rs2,
 
-    input wire [31:0]notbranch_pc,
     input wire write_reg,
-    input wire [2:0]info_branch,
     input wire [4:0]dst_addr,
 
+    output reg [31:0]next_pcD,
     output reg [31:0]rd_data,
     output reg w_reg,
-    output reg [31:0]notbranchD,
     output reg [31:0]branchD,
-    output reg [2:0]info_branchD,
-    output reg [4:0]dst_addrD
+    output reg [4:0]dst_addrD,
     );
 
     reg [31:0]datamem[0:255];//word length equal to 4byte. datamem is byte addressing memory.
@@ -47,10 +45,9 @@ module datamem(
     always@(posedge clk)begin
         rd_data <= load_data;
         w_reg <= write_reg;
-        notbranchD <= notbranch_pc;
         branchD <= aluresult;
-        info_branchD <= info_branch;
         dst_addrD<=dst_addr;
+        next_pcD <= next_pc;
 
         case(info_store)
             `Sb:begin

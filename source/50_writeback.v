@@ -1,15 +1,14 @@
-
+`timescale 1ns / 1ps
 `include "sequencer.v"
 
 module writeback(
     input wire clk,
-    input wire [31:0]notbranch,
     input wire [31:0]branch,
-    input wire [3:0]info_branch,
 
     input wire w_reg,
     input wire rd_data[31:0],
     input wire [4:0]dst_addr,
+    input wire [31:0]next_pcD,
 
     output reg [31:0]next_pc,
 
@@ -18,18 +17,8 @@ module writeback(
     output reg [31:0]dstreg_data
     );
 
-    wire [31:0]npc;
-
-    sequencer sequencer0(
-        .info_branch(info_branch),
-        .branch(branch),
-        .notbranch(notbranch),
-        .next_pc(npc)
-    );
-
-
     always@(posedge clk)begin
-        next_pc <= npc;
+        next_pc <= next_pcD;
 
         write_reg <= w_reg;
         dstreg_data <= rd_data;

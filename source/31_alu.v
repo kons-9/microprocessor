@@ -24,17 +24,17 @@ module alu(
     function [31:0]ans;
         input[31:0] x,y;
         case(alucode)
-            `ADD: ans <= x+y;
-            `SUB: ans<= x-y;
-            `SLT: ans<= x < y;
-            `SLTu: ans <= $signed(x)<$signed(y);
-            `SLL: ans <= x<<y[4:0];
-            `SRL: ans <= x>>y[4:0];
-            `SRA: ans <= $signed(x)>>>$signed(y[4:0]); 
-            `AND: ans <= x&y;
-            `OR: ans <= x|y;
-            `XOR: ans <= x^y;
-            default: ans <= {32{1'b1}};
+            `ADD: ans = x+y;
+            `SUB: ans= x-y;
+            `SLT: ans= x < y;
+            `SLTu: ans = $signed(x)<$signed(y);
+            `SLL: ans = x<<y[4:0];
+            `SRL: ans = x>>y[4:0];
+            `SRA: ans = $signed(x)>>>$signed(y[4:0]); 
+            `AND: ans = x&y;
+            `OR: ans = x|y;
+            `XOR: ans = x^y;
+            default: ans = {32{1'b1}};
         endcase
     endfunction
 endmodule

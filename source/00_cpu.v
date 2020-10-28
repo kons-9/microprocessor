@@ -66,14 +66,13 @@ module cpu(
     wire [31:0]r1_data;
     wire [31:0]r2_data;
 
-    wire [31:0]notbranch;
     wire [31:0]alu_result;
     wire [31:0]rs2E;
     wire write_regE;
     wire [2:0] info_loadE;
     wire [1:0] info_storeE;
-    wire [2:0] info_branchE;
     wire [4:0] dstreg_addrE;
+    wire [31:0] next_pcE;
     //execute
     execute execute0(
         //input
@@ -82,7 +81,7 @@ module cpu(
         .r2_data(r2_data),
         .dstreg(dstreg_data),
         .imm(imm),
-        .pc(pc2)
+        .pc(pc2),
         .alucode(alucode),
         .using_r2(using_r2),
         .using_pc(using_pc),
@@ -92,21 +91,19 @@ module cpu(
         .info_branch(info_branch),//unused
         .dstreg_addr(dstreg_addr),
         //output
-        .notbranch_pc(notbranch),
         .alu_result(alu_result),
+        .next_pc(next_pcE),
         .rs2E(rs2E),//unused
         .write_regE(write_regE),//unused
         .info_loadE(info_loadE),//unused
         .info_storeE(info_storeE),//unused
-        .info_branchE(info_branchE),//unused
-        .dstreg_addrE(dstreg_addrE)
+        .dstreg_addrE(dstreg_addrE),
     );
 
+    wire [31:0]next_pcD;
     wire w_regD;
     wire [31:0]rd_dataD;
-    wire [31:0]notbranchD;
     wire [31:0]branchD;
-    wire [2:0]info_branchD;
     wire [4:0]dst_addrD;
     //writemem
     datamem datamem0(
@@ -116,17 +113,14 @@ module cpu(
         .info_store(info_storeE),
         .alu_result(alu_result),
         .rs2(rs2E),
-        .notbranch_pc(notbranch),//unused
         .write_reg(write_regE),//unused
-        .info_branch(info_branchE),//unused
         .dst_addr(dstreg_addrE),
         //output
+        .next_pcD(next_pcD),
         .w_reg(w_regD),
         .rd_data(rd_dataD),
-        .notbranchD(notbranchD),//unused
         .branchD(branchD),//unused
-        .info_branchD(info_branchD),//unused
-        .dst_addrD(dst_addrD)
+        .dst_addrD(dst_addrD),
     );
 
     wire [4:0]dstreg_addrW;
@@ -136,19 +130,17 @@ module cpu(
     writeback writeback0(
         //input
         .clk(sysclk),
-        .notbranch(notbranchD),
         .branch(branchD),
-        .info_branch(info_branchD),
         .w_reg(w_regD),
         .rd_data(rd_dataD),
         .dst_addr(dst_addrD),
+        .next_pcD(next_pcD),
         //output
         .next_pc(next_pc),
         .dstreg_addr(dstreg_addrW),
         .write_reg(w_regW),
         .dstreg_data(dst_dataW)
-        );
-
+    );
 
     //regster file(decode,writeback)
     regfile regfile0(
