@@ -2,6 +2,7 @@
 
 `include "31_alu.v"
 `include "32_gen_branch_signal.v"
+`include "33_sequencer"
 
 module execute(
     input wire clk,
@@ -35,6 +36,7 @@ module execute(
     wire [31:0] ans;
     wire signal;
     wire [31:0]notbranch;
+    wire [31:0]npc;
 
     assign notbranch = pc+4;//default program counter
 
@@ -57,9 +59,17 @@ module execute(
         .branch_signal(signal)
     );
 
+    sequencer sequencer0 (
+        .branch_signal(signal),
+        .branch(ans),
+        .notbranch(notbranch),
+        
+        .npc(npc)
+    );
+
     always@(posedge clk)begin
         alu_result <= ans;
-        next_pc <= signal ? alu_result : notbranch;
+        next_pc <= npc;
 
         rs2E <= r2_data;
         write_regE <= wite_reg;

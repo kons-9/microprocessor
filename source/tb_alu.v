@@ -29,7 +29,6 @@ module alu_tb;
     wire br;
 
     alu alu(
-        .clk(clk),
        .alucode(code),
        .r1(op1),
        .r2(op2),
@@ -38,10 +37,6 @@ module alu_tb;
        .using_pc(`FALSE),
        .alu_result(result)
     );
-    always begin
-        clk<=~clk;
-    #5;
-    end
 
     initial begin
         clk<=0;
