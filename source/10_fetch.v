@@ -12,7 +12,7 @@ module fetch(
     wire eq,sl,slu;
     reg [31:0]ir_mem[0:255];
 
-    parameter FILENAME = "";
+    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/template/code.hex";
 
     initial begin
         $readmemb(FILENAME, ir_mem);
