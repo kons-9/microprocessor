@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 `include "41_load.v"
 `include "99_define.v"
-parameter FILENAME "";
 
 module datamem(
     input wire clk,
@@ -18,55 +17,63 @@ module datamem(
     output reg [31:0]rd_data,
     output reg w_reg,
     output reg [31:0]branchD,
-    output reg [4:0]dst_addrD,
+    output reg [4:0]dst_addrD
     );
 
-    reg [31:0]datamem[0:255];//word length equal to 4byte. datamem is byte addressing memory.
+    reg [31:0]datamem[0:70000];//word length equal to 4byte. datamem is byte addressing memory.
 
     wire [31:0]byte_addr;
     wire [1:0]addr_rem; //addr's remainder
     wire [31:0]addr_data;
     wire [31:0]load_data;
+    
+    integer i;
 
-    assign byte_addr = {{2{alu_result[31]}},alu_result[30:2]};// division by 4(because word length is 4byte)
+    assign byte_addr = {{3{alu_result[31]}},alu_result[30:2]};// division by 4(because word length is 4byte)
     assign addr_rem = alu_result[1:0];// mod 4
     assign addr_data = datamem[byte_addr];
 
     load load0(
         .addr_data(addr_data),
         .addr_rem(addr_rem),
-        .load_data(load_data)
+        .alu_result(alu_result),
+        .info_load(info_load),
+
+        .data(load_data)
     );
+    parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/tests/data.hex";
 
     initial begin
-        $readmemb(FILENAME,datamem);
+        for (i=0; i < 70000; i = i+1)begin datamem[i] <= 32'h00000000;end
     end
 
     always@(posedge clk)begin
         rd_data <= load_data;
         w_reg <= write_reg;
-        branchD <= aluresult;
+        branchD <= alu_result;
         dst_addrD<=dst_addr;
         next_pcD <= next_pc;
 
         case(info_store)
             `Sb:begin
-                case(mod_4)
+                case(addr_rem)
                     2'b00:datamem[byte_addr][7:0]<=rs2[7:0];
-                    2'b01:datamem[byte_addr][15:7]<=rs2[7:0];
+                    2'b01:datamem[byte_addr][15:8]<=rs2[7:0];
                     2'b10:datamem[byte_addr][23:16]<=rs2[7:0];
                     2'b11:datamem[byte_addr][31:24]<=rs2[7:0];
-                    default:
+                    default:begin end
+                endcase
             end
             `Sh:begin
-                case(mod_4)
+                case(addr_rem)
                     2'b00:datamem[byte_addr][15:0]<=rs2[15:0];
                     2'b01:datamem[byte_addr][23:8]<=rs2[15:0];
                     2'b10:datamem[byte_addr][31:16]<=rs2[15:0];
-                    default:
+                    default:begin end
+                endcase
             end
             `Sw:datamem[byte_addr][31:0]<=rs2[31:0];
-            default:
+            default:begin end
         endcase
     end
-
+endmodule

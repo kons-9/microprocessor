@@ -9,7 +9,8 @@
 `include "99_regfile.v"
 
 module cpu(
-    sysclk
+    input wire sysclk,
+    input wire cpu_resetn
     );
     // the number of stage is five.
     //1st stage is fetch.
@@ -18,12 +19,46 @@ module cpu(
     //4th stage is save data(datamem).
     //5th stage is writeback.
 
+    reg fclk,dclk,eclk,mclk,wclk;
+
+    initial begin
+        fclk<=0;
+        dclk<=0;
+        eclk<=0;
+        mclk<=0;
+        wclk<=0;
+    end
+
+    always@(posedge sysclk)begin
+        if(fclk==1)begin
+            dclk <=1;
+            fclk <= 0;
+        end 
+        else if(dclk==1)begin
+            dclk <= 0;
+            eclk <= 1;
+        end
+        else if(eclk==1)begin
+            eclk<=0;
+            mclk<=1;
+        end
+        else if(mclk ==1)begin
+            mclk<=0;
+            wclk<=1;
+        end
+        else begin
+            wclk<=0;
+            fclk<=1;
+        end
+    end
+
     wire [31:0]next_pc;
     wire [31:0]ir;
     wire [31:0]pc1;
     //fetch
     fetch fetch0(
-        .clk(sysclk),
+        .clk(fclk),
+        .reset(cpu_resetn),
         .next_pc(next_pc),
 
         .ir(ir),
@@ -45,7 +80,7 @@ module cpu(
     //decode
     decoder decoder0(
         //input
-        .clk(sysclk),
+        .clk(dclk),
         .ir(ir),
         .pc1(pc1),
         //output
@@ -76,10 +111,9 @@ module cpu(
     //execute
     execute execute0(
         //input
-        .clk(sysclk),
+        .clk(eclk),
         .r1_data(r1_data),
         .r2_data(r2_data),
-        .dstreg(dstreg_data),
         .imm(imm),
         .pc(pc2),
         .alucode(alucode),
@@ -90,6 +124,7 @@ module cpu(
         .info_store(info_store),//unused
         .info_branch(info_branch),//unused
         .dstreg_addr(dstreg_addr),
+        
         //output
         .alu_result(alu_result),
         .next_pc(next_pcE),
@@ -97,7 +132,7 @@ module cpu(
         .write_regE(write_regE),//unused
         .info_loadE(info_loadE),//unused
         .info_storeE(info_storeE),//unused
-        .dstreg_addrE(dstreg_addrE),
+        .dstreg_addrE(dstreg_addrE)
     );
 
     wire [31:0]next_pcD;
@@ -108,28 +143,29 @@ module cpu(
     //writemem
     datamem datamem0(
         //input
-        .clk(sysclk),
+        .clk(mclk),
         .info_load(info_loadE),
         .info_store(info_storeE),
         .alu_result(alu_result),
         .rs2(rs2E),
         .write_reg(write_regE),//unused
         .dst_addr(dstreg_addrE),
+        .next_pc(next_pcE),
         //output
         .next_pcD(next_pcD),
         .w_reg(w_regD),
         .rd_data(rd_dataD),
         .branchD(branchD),//unused
-        .dst_addrD(dst_addrD),
+        .dst_addrD(dst_addrD)
     );
 
     wire [4:0]dstreg_addrW;
     wire w_regW;
-    wire [5:0]dst_dataW;
+    wire [31:0]dst_dataW;
     //writeback
     writeback writeback0(
         //input
-        .clk(sysclk),
+        .clk(wclk),
         .branch(branchD),
         .w_reg(w_regD),
         .rd_data(rd_dataD),

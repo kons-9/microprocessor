@@ -116,7 +116,7 @@ module decoder(
             srcreg2_num <= 5'b00000;
             dstreg_num <= ir[11:7];
 
-            alucode <=`UNUSED;
+            alucode <=`LUI;
         end
 
         `AUiPC:begin
@@ -150,7 +150,7 @@ module decoder(
 
             info_load <= `NOTLOAD;
             info_store <= `NOTSTORE;
-            info_branch <= `JAL;
+            info_branch <= `BJAL;
             
             srcreg1_num <= 5'b00000;
             srcreg2_num <= 5'b00000;
@@ -170,7 +170,7 @@ module decoder(
 
             info_load <= `NOTLOAD;
             info_store <= `NOTSTORE;
-            info_branch <= `JALR;
+            info_branch <= `BJALR;
             
             srcreg1_num <= ir[19:15];
             srcreg2_num <= 5'b00000;

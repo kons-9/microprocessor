@@ -9,7 +9,6 @@ module execute(
 
     input wire [31:0]r1_data,
     input wire [31:0]r2_data,
-    input wire [31:0]dstreg,
     input wire [31:0]imm,  
     input wire [31:0]pc,
 
@@ -68,11 +67,15 @@ module execute(
     );
 
     always@(posedge clk)begin
-        alu_result <= ans;
+        case(info_branch)
+            `BJAL,`BJALR:alu_result <= notbranch;
+            default:alu_result <= ans;
+        endcase
+        
         next_pc <= npc;
 
         rs2E <= r2_data;
-        write_regE <= wite_reg;
+        write_regE <= write_reg;
         info_loadE <= info_load;
         info_storeE <= info_store;
         dstreg_addrE <= dstreg_addr;

@@ -68,6 +68,7 @@
 `define AND 4'b0111
 `define OR 4'b1000
 `define XOR 4'b1001
+`define LUI 4'b1010
 `define UNUSED 4'b1011
 
 //store info
@@ -94,3 +95,10 @@
 `define BJAL 4'b0111
 `define BJALR 4'b0101
 `define NOTBRANCH 4'b0000
+
+//stage
+`define F 3'b000
+`define D 3'b001
+`define E 3'b010
+`define M 3'b011
+`define W 3'b100

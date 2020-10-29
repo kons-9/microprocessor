@@ -36,6 +36,7 @@ module alu(
             `AND: ans = x&y;
             `OR: ans = x|y;
             `XOR: ans = x^y;
+            `LUI: ans = y;
             default: ans = {32{1'b1}};
         endcase
     endfunction
