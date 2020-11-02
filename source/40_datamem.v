@@ -12,6 +12,7 @@ module datamem(
 
     input wire write_reg,
     input wire [4:0]dst_addr,
+    input wire [31:0] hc_OUT_data,
 
     output reg [31:0]next_pcD,
     output reg [31:0]rd_data,
@@ -41,14 +42,15 @@ module datamem(
 
         .data(load_data)
     );
-    parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/tests/data.hex";
+    parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex";
 
     initial begin
-        for (i=0; i < 70000; i = i+1)begin datamem[i] <= 32'h00000000;end
+        //for (i=0; i < 70000; i = i+1)begin datamem[i] <= 32'h00000000;end
+        $readmemh(FILENAME, datamem);
     end
 
     always@(posedge clk)begin
-        rd_data <= load_data;
+        rd_data <= ((info_load==`Lw)&&(alu_result==`HARDWARE_COUNTER_ADDR))?hc_OUT_data:load_data;
         w_reg <= write_reg;
         branchD <= alu_result;
         dst_addrD<=dst_addr;

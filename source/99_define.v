@@ -102,3 +102,9 @@
 `define E 3'b010
 `define M 3'b011
 `define W 3'b100
+
+// address for hardware counter
+`define HARDWARE_COUNTER_ADDR 32'hffffff00
+
+// address for UART
+`define UART_ADDR 32'hf6fff070

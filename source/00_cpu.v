@@ -7,10 +7,13 @@
 `include "50_writeback.v"
 `include "99_define.v"
 `include "99_regfile.v"
+`include "99_uart.v"
+`include "99_hardware_counter.v"
 
 module cpu(
     input wire sysclk,
-    input wire cpu_resetn
+    input wire cpu_resetn,
+    input wire uart_tx
     );
     // the number of stage is five.
     //1st stage is fetch.
@@ -140,6 +143,8 @@ module cpu(
     wire [31:0]rd_dataD;
     wire [31:0]branchD;
     wire [4:0]dst_addrD;
+
+    wire [31:0] hc_OUT_data;
     //writemem
     datamem datamem0(
         //input
@@ -151,6 +156,7 @@ module cpu(
         .write_reg(write_regE),//unused
         .dst_addr(dstreg_addrE),
         .next_pc(next_pcE),
+        .hc_OUT_data(hc_OUT_data),
         //output
         .next_pcD(next_pcD),
         .w_reg(w_regD),
@@ -191,6 +197,40 @@ module cpu(
         .reg1_data(r1_data),//execute
         .reg2_data(r2_data)//execute
     );
+
+    /*                 */
+    /* HardwareCounter */
+    /*                 */
+    // wire [31:0] hc_OUT_data;
+
+    hardware_counter hardware_counter0(
+        .CLK_IP(sysclk),
+        .RSTN_IP(cpu_resetn),
+        .COUNTER_OP(hc_OUT_data)
+    );
+
+    /*      */
+    /* uart */
+    /*      */
+    wire [7:0] uart_IN_data;
+    wire uart_we;
+    wire uart_OUT_data;
+
+    // Memory Accessステージに下記のような記述を追加
+    assign uart_IN_data = rs2E[7:0];  // ストアするデータをモジュールへ入力
+    assign uart_we = ((alu_result == `UART_ADDR) && (info_storeE != `NOTSTORE)) ? 1'b1 : 1'b0;  // シリアル通信用アドレスへのストア命令実行時に送信開始信号をアサート
+    assign uart_tx = uart_OUT_data;  // シリアル通信モジュールの出力はFPGA外部へと出力
+
+    uart uart0(
+        .uart_tx(uart_OUT_data),
+        .uart_wr_i(uart_we),
+
+        .uart_dat_i(uart_IN_data),
+        .sys_clk_i(sysclk),
+        .sys_rstn_i(cpu_resetn)
+    );
+
+
 
 
 endmodule

@@ -6,6 +6,7 @@
 module cpu_tb;
     reg sysclk;
     reg cpu_resetn;
+    wire uart_tx;
 
     parameter CYC = 2;
 
@@ -16,7 +17,8 @@ module cpu_tb;
 
     cpu cpu0(
         .sysclk(sysclk),
-        .cpu_resetn(cpu_resetn)
+        .cpu_resetn(cpu_resetn),
+        .uart_tx(uart_tx)
     );
 
     initial begin
@@ -24,7 +26,7 @@ module cpu_tb;
         cpu_resetn = 1'b0;
         #(CYC);
         cpu_resetn = 1'b1;
-        #100000 $finish;
+        #10000000000 $finish;
     end
 
 
