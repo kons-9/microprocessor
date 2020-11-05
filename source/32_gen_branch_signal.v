@@ -6,6 +6,7 @@ module gen_branch_signal(
     input wire [3:0]info_branch,
     input wire [31:0] reg1,
     input wire [31:0] reg2,
+    input wire flush,
 
     output wire branch_signal
     );
@@ -17,7 +18,7 @@ module gen_branch_signal(
     assign sl = ($signed(reg1)<$signed(reg2));
     assign slu = ($unsigned(reg1)<$unsigned(reg2));
 
-    assign branch_signal = gen_signal(info_branch,eq,sl,slu);
+    assign branch_signal = flush?1'b0:gen_signal(info_branch,eq,sl,slu);
 
     function gen_signal;
         input [3:0]info_branch;

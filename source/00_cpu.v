@@ -55,6 +55,7 @@ module cpu(
         end
     end
 
+
     wire [31:0]next_pc;
     wire [31:0]ir;
     wire [31:0]pc1;
@@ -80,6 +81,7 @@ module cpu(
     wire [1:0] info_store;
     wire [3:0] info_branch;
     wire [31:0] pc2;
+
     //decode
     decoder decoder0(
         //input
@@ -165,24 +167,24 @@ module cpu(
         .dst_addrD(dst_addrD)
     );
 
-    wire [4:0]dstreg_addrW;
-    wire w_regW;
-    wire [31:0]dst_dataW;
-    //writeback
-    writeback writeback0(
-        //input
-        .clk(wclk),
-        .branch(branchD),
-        .w_reg(w_regD),
-        .rd_data(rd_dataD),
-        .dst_addr(dst_addrD),
-        .next_pcD(next_pcD),
-        //output
-        .next_pc(next_pc),
-        .dstreg_addr(dstreg_addrW),
-        .write_reg(w_regW),
-        .dstreg_data(dst_dataW)
-    );
+    // wire [4:0]dstreg_addrW;
+    // wire w_regW;
+    // wire [31:0]dst_dataW;
+    // //writeback
+    // writeback writeback0(
+    //     //input
+    //     .clk(wclk),
+    //     .branch(branchD),
+    //     .w_reg(w_regD),
+    //     .rd_data(rd_dataD),
+    //     .dst_addr(dst_addrD),
+    //     .next_pcD(next_pcD),
+    //     //output
+    //     .next_pc(next_pc),
+    //     .dstreg_addr(dstreg_addrW),
+    //     .write_reg(w_regW),
+    //     .dstreg_data(dst_dataW)
+    // );
 
     //regster file(decode,writeback)
     regfile regfile0(

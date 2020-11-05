@@ -16,6 +16,12 @@ module execute(
     input wire using_r2,//r2 or imm  
     input wire using_pc,//r1 or pc
 
+    input wire [1:0]forward_sig1,
+    input wire [1:0]forward_sig2,
+    input wire [31:0]forward_data_writemem,
+    input wire [31:0]forward_data_writeback,
+    input wire flush,
+
     input wire write_reg,
     input wire [2:0]info_load,
     input wire [1:0]info_store,
@@ -23,7 +29,8 @@ module execute(
     input wire [4:0]dstreg_addr,
 
     output reg [31:0] alu_result,
-    output reg [31:0] next_pc,
+    output wire branch_signal,
+    output wire [31:0]branch_pc,
 
     output reg [31:0]rs2E,
     output reg write_regE,
@@ -33,15 +40,19 @@ module execute(
     );
 
     wire [31:0] ans;
-    wire signal;
-    wire [31:0]notbranch;
-    wire [31:0]npc;
+    assign branch_pc = ans;
 
-    assign notbranch = pc+4;//default program counter
+    wire alu_var1,alu_var2;
 
+    assign alu_var1 =   forward_sig1==`NORMAL ? r1_data:
+                        forward_sig1==`WRITEMEM ? forward_data_writemem:
+                        forward_sig1==`WRITEBACK ? forward_data_writeback:r1_data
+    assign alu_var2 =   forward_sig2==`NORMAL ? r2_data:
+                        forward_sig2==`WRITEMEM ? forward_data_writemem:
+                        forward_sig2==`WRITEBACK ? forward_data_writeback:r2_data
     alu alu0(
-        .r1(r1_data),
-        .r2(r2_data),
+        .r1(alu_var1),
+        .r2(alu_var2),
         .imm(imm),
         .pc(pc),
         .alucode(alucode),
@@ -54,16 +65,9 @@ module execute(
         .info_branch(info_branch),
         .reg1(r1_data),
         .reg2(r2_data),
+        .flush(flush),
 
-        .branch_signal(signal)
-    );
-
-    sequencer sequencer0 (
-        .branch_signal(signal),
-        .branch(ans),
-        .notbranch(notbranch),
-        
-        .npc(npc)
+        .branch_signal(branch_signal)
     );
 
     always@(posedge clk)begin
@@ -71,14 +75,11 @@ module execute(
             `BJAL,`BJALR:alu_result <= notbranch;
             default:alu_result <= ans;
         endcase
-        
-        next_pc <= npc;
 
         rs2E <= r2_data;
         write_regE <= write_reg;
         info_loadE <= info_load;
         info_storeE <= info_store;
         dstreg_addrE <= dstreg_addr;
-    end
-    
+    end 
 endmodule

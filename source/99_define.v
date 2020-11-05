@@ -103,6 +103,11 @@
 `define M 3'b011
 `define W 3'b100
 
+//hazard
+`define NORMAL 2'b00
+`define WRITEMEM 2'b01
+`define WRITEBACK 2'b10
+
 // address for hardware counter
 `define HARDWARE_COUNTER_ADDR 32'hffffff00
 
