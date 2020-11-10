@@ -1,0 +1,17 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/00_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module execute
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-311] analyzing module datamem
+WARNING: [VRFC 10-986] literal value truncated to fit in 5 bits [/home/denjo/risc/source/40_datamem.v:47]
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module hazard_control
+INFO: [VRFC 10-311] analyzing module hardware_counter
+INFO: [VRFC 10-311] analyzing module cpu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu_tb

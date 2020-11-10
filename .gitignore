@@ -1,6 +1,10 @@
 b3exp/*
 practice/*
 riscv/*
-work/*
+work/adder4/*
+work/stateachine/*
+work/vending/*
+work/vivado*
+./vivado*
 *.zip
 *.xz

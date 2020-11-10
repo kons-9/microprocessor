@@ -23,7 +23,7 @@ module regfile(
 
     always@(posedge clk)begin
 
-        if(write_reg && dstreg_addr!==5'b00000)begin
+        if(write_reg && dstreg_addr!=5'b00000)begin
             register[dstreg_addr]<=dstreg_data;
             if(dstreg_addr==reg1_addr)
                 reg1_data <= dstreg_data;

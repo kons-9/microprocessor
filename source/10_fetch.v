@@ -25,12 +25,13 @@ module fetch(
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
 
-    reg [31:0]ir_mem[0:70000];
+    reg [31:0]ir_mem[0:16384];
     initial begin
         $readmemh(FILENAME, ir_mem);
     end
 
     reg [31:0]pc1;
+    
     wire [31:0]next_pc;
     wire [31:0]pcplus4;
     wire [31:0]npcplus4;
@@ -45,20 +46,15 @@ module fetch(
         
         .npc(next_pc)
     );
-    
+    // assign next_pc = branch_sig ? branch_pc : pcplus4;
     
     always@(posedge clk or negedge reset)begin
-        if (reset ===1'b0)begin
-            pc1 <= 32'h7FFC;
-        end
-        else if(clk ==1'b1)begin 
-            pc1 <= stallF ? pc1:next_pc ;
+        pc1 <=  reset==1'b0 ? 32'h7FFC:
+                stallF ? pc1:next_pc ;
 
-            ir <= stallD ? ir:ir_mem[next_pc>>2];
-            npc <= stallD ? npc:next_pc;
-            notbranch <= npcplus4;
-        end
-        else begin end
+        ir <= stallD ? ir:ir_mem[next_pc>>2];
+        npc <= stallD ? npc:next_pc;
+        notbranch <= npcplus4;
     end
 
 endmodule
