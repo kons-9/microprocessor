@@ -1,8 +1,5 @@
 `timescale 1ns / 1ps
 
-`include "00_cpu.v"
-`include "99_define.v"
-
 module cpu_tb;
     reg sysclk;
     reg cpu_resetn;
@@ -26,7 +23,7 @@ module cpu_tb;
         cpu_resetn = 1'b0;
         #(CYC);
         cpu_resetn = 1'b1;
-        #10000000000 $finish;
+        #1410065408 $finish;
     end
 
 

@@ -4,16 +4,16 @@
 `include "20_decoder.v"
 `include "30_execute.v"
 `include "40_datamem.v"
-`include "50_writeback.v"
 `include "99_define.v"
 `include "99_regfile.v"
 `include "99_uart.v"
+`include "99_hazard_control.v"
 `include "99_hardware_counter.v"
 
 module cpu(
     input wire sysclk,
     input wire cpu_resetn,
-    input wire uart_tx
+    output wire uart_tx
     );
     // the number of stage is five.
     //1st stage is fetch.
@@ -22,53 +22,30 @@ module cpu(
     //4th stage is save data(datamem).
     //5th stage is writeback.
 
-    reg fclk,dclk,eclk,mclk,wclk;
-
-    initial begin
-        fclk<=0;
-        dclk<=0;
-        eclk<=0;
-        mclk<=0;
-        wclk<=0;
-    end
-
-    always@(posedge sysclk)begin
-        if(fclk==1)begin
-            dclk <=1;
-            fclk <= 0;
-        end 
-        else if(dclk==1)begin
-            dclk <= 0;
-            eclk <= 1;
-        end
-        else if(eclk==1)begin
-            eclk<=0;
-            mclk<=1;
-        end
-        else if(mclk ==1)begin
-            mclk<=0;
-            wclk<=1;
-        end
-        else begin
-            wclk<=0;
-            fclk<=1;
-        end
-    end
-
-
-    wire [31:0]next_pc;
     wire [31:0]ir;
-    wire [31:0]pc1;
+    wire branch_sig;
+    wire stallF;
+    wire stallD;
+    wire [31:0]notbranchD;
+    wire [31:0]branch_pc;
+    wire [31:0]npc;
+
     //fetch
     fetch fetch0(
-        .clk(fclk),
+        .clk(sysclk),
         .reset(cpu_resetn),
-        .next_pc(next_pc),
+        .branch_sig(branch_sig),
+        .branch_pc(branch_pc),
+        .stallF(stallF),
+        .stallD(stallD),
 
         .ir(ir),
-        .pc1(pc1)
+        .npc(npc),
+        .notbranch(notbranchD)
     );
 
+    wire flushE;
+    
     wire [4:0]reg1_addr;
     wire [4:0]reg2_addr;
     wire [4:0]dstreg_addr;
@@ -81,13 +58,18 @@ module cpu(
     wire [1:0] info_store;
     wire [3:0] info_branch;
     wire [31:0] pc2;
+    wire [4:0] Ereg1_addr;
+    wire [4:0] Ereg2_addr;
+    wire [31:0] notbranchE;
 
     //decode
     decoder decoder0(
         //input
-        .clk(dclk),
+        .clk(sysclk),
         .ir(ir),
-        .pc1(pc1),
+        .pc1(npc),
+        .flush(flushE),
+        .notbranchD(notbranchD),
         //output
         .srcreg1_num(reg1_addr),
         .srcreg2_num(reg2_addr),
@@ -100,23 +82,30 @@ module cpu(
         .info_load(info_load),
         .info_store(info_store),
         .info_branch(info_branch),
-        .pc2(pc2)
+        .pc2(pc2),
+        .Ereg1_addr(Ereg1_addr),
+        .Ereg2_addr(Ereg2_addr),
+        .notbranch(notbranchE)
     );
+    wire flushD;
+    wire [31:0]load_data;
 
     wire [31:0]r1_data;
     wire [31:0]r2_data;
+    wire [1:0]forward_sig1;
+    wire [1:0]forward_sig2;
 
-    wire [31:0]alu_result;
     wire [31:0]rs2E;
     wire write_regE;
     wire [2:0] info_loadE;
     wire [1:0] info_storeE;
     wire [4:0] dstreg_addrE;
-    wire [31:0] next_pcE;
+    wire [31:0] alu_result;
+    wire [31:0]rd_dataD;
     //execute
     execute execute0(
         //input
-        .clk(eclk),
+        .clk(sysclk),
         .r1_data(r1_data),
         .r2_data(r2_data),
         .imm(imm),
@@ -124,67 +113,50 @@ module cpu(
         .alucode(alucode),
         .using_r2(using_r2),
         .using_pc(using_pc),
+        .forward_sig1(forward_sig1),
+        .forward_sig2(forward_sig2),
+        .forward_data_writemem(load_data),
+        .forward_data_writeback(rd_dataD),
+        .notbranch(notbranchE),
         .write_reg(write_reg),//unused
         .info_load(info_load),//unused
         .info_store(info_store),//unused
         .info_branch(info_branch),//unused
         .dstreg_addr(dstreg_addr),
+        .flush(flushD),
         
         //output
         .alu_result(alu_result),
-        .next_pc(next_pcE),
+        .branch_signal(branch_sig),
         .rs2E(rs2E),//unused
         .write_regE(write_regE),//unused
         .info_loadE(info_loadE),//unused
         .info_storeE(info_storeE),//unused
-        .dstreg_addrE(dstreg_addrE)
+        .dstreg_addrE(dstreg_addrE),
+        .branch_pc(branch_pc)
     );
 
-    wire [31:0]next_pcD;
     wire w_regD;
-    wire [31:0]rd_dataD;
-    wire [31:0]branchD;
     wire [4:0]dst_addrD;
 
     wire [31:0] hc_OUT_data;
     //writemem
     datamem datamem0(
         //input
-        .clk(mclk),
+        .clk(sysclk),
         .info_load(info_loadE),
         .info_store(info_storeE),
         .alu_result(alu_result),
         .rs2(rs2E),
         .write_reg(write_regE),//unused
         .dst_addr(dstreg_addrE),
-        .next_pc(next_pcE),
         .hc_OUT_data(hc_OUT_data),
         //output
-        .next_pcD(next_pcD),
+        .load_data(load_data),//alu_result fowarding
         .w_reg(w_regD),
         .rd_data(rd_dataD),
-        .branchD(branchD),//unused
-        .dst_addrD(dst_addrD)
+        .dst_addrD(dst_addrD)//unused
     );
-
-    // wire [4:0]dstreg_addrW;
-    // wire w_regW;
-    // wire [31:0]dst_dataW;
-    // //writeback
-    // writeback writeback0(
-    //     //input
-    //     .clk(wclk),
-    //     .branch(branchD),
-    //     .w_reg(w_regD),
-    //     .rd_data(rd_dataD),
-    //     .dst_addr(dst_addrD),
-    //     .next_pcD(next_pcD),
-    //     //output
-    //     .next_pc(next_pc),
-    //     .dstreg_addr(dstreg_addrW),
-    //     .write_reg(w_regW),
-    //     .dstreg_data(dst_dataW)
-    // );
 
     //regster file(decode,writeback)
     regfile regfile0(
@@ -192,12 +164,31 @@ module cpu(
         .clk(sysclk),
         .reg1_addr(reg1_addr),//after decode
         .reg2_addr(reg2_addr),//after decode
-        .dstreg_addr(dstreg_addrW),
-        .write_reg(w_regW),
-        .dstreg_data(dst_dataW),
+        .dstreg_addr(dst_addrD),
+        .write_reg(w_regD),
+        .dstreg_data(rd_dataD),
         //output
         .reg1_data(r1_data),//execute
         .reg2_data(r2_data)//execute
+    );
+
+    hazard_control hazard_control0(
+        .clk(sysclk),
+        .reset(cpu_resetn),
+        .Ereg1_addr(Ereg1_addr),
+        .Ereg2_addr(Ereg2_addr),
+        .Mwrite_reg_addr(dstreg_addrE),
+        .Mwrite_reg_sig(write_regE),
+        .Wwrite_reg_addr(dst_addrD),
+        .Wwrite_reg_sig(w_regD),
+        .branch_sig(branch_sig),
+        
+        .forward1E(forward_sig1),
+        .forward2E(forward_sig2),
+        .stallF(stallF),
+        .stallD(stallD),
+        .flushE(flushE),
+        .flushD(flushD)
     );
 
     /*                 */

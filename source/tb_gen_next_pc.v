@@ -17,7 +17,7 @@
 
 `include "99_define.v"
 `include "32_gen_branch_signal.v"
-`include "33_sequencer.v"
+`include "11_sequencer.v"
 
 module gen_next_pc_tb;
     reg [3:0]info_branch;

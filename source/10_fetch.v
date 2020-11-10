@@ -12,11 +12,12 @@ module fetch(
     input wire stallD,
 
     output reg [31:0]ir,
-    output reg [31:0]npc
+    output reg [31:0]npc,
+    output reg [31:0]notbranch
     );
     
 
-    //parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
@@ -28,10 +29,14 @@ module fetch(
     initial begin
         $readmemh(FILENAME, ir_mem);
     end
+
+    reg [31:0]pc1;
     wire [31:0]next_pc;
     wire [31:0]pcplus4;
+    wire [31:0]npcplus4;
 
     assign pcplus4 = pc1+4;
+    assign npcplus4 = next_pc+4;
 
     sequencer sequencer0(
         .branch_signal(branch_sig),
@@ -44,14 +49,14 @@ module fetch(
     
     always@(posedge clk or negedge reset)begin
         if (reset ===1'b0)begin
-            ir <= ir_mem[32'h00008000>>2];
-            pc1 <= 32'h8000;
+            pc1 <= 32'h7FFC;
         end
         else if(clk ==1'b1)begin 
             pc1 <= stallF ? pc1:next_pc ;
 
             ir <= stallD ? ir:ir_mem[next_pc>>2];
             npc <= stallD ? npc:next_pc;
+            notbranch <= npcplus4;
         end
         else begin end
     end

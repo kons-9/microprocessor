@@ -2,6 +2,7 @@
 
 module hazard_control(
     input wire clk,
+    input wire reset,
     //data hazard input
     input wire [4:0]Ereg1_addr,
     input wire [4:0]Ereg2_addr,
@@ -20,16 +21,19 @@ module hazard_control(
     //control hazard input 
     output wire stallF,
     output wire stallD,
-    output wire flushE //1 execute is dumped
+    output wire flushE, //1 execute is dumped
+    output wire flushD
     );
 
     assign forward1E = gen_forward_signal(Ereg1_addr,Mwrite_reg_addr,Wwrite_reg_addr,Mwrite_reg_sig,Wwrite_reg_sig);
-    assign forward2E = gen_forward_signal(Ereg1_addr,Mwrite_reg_addr,Wwrite_reg_addr,Mwrite_reg_sig,Wwrite_reg_sig);
+    assign forward2E = gen_forward_signal(Ereg2_addr,Mwrite_reg_addr,Wwrite_reg_addr,Mwrite_reg_sig,Wwrite_reg_sig);
     
     reg [2:0]stage;
-    assign stallD = 0;
-    assign stallF =0;
-    assign flushE = gen_flush_signal(branch_sig,stage);
+    assign stallD = 1'b0;
+    assign stallF = 1'b0;
+    assign flushD = 1'b0;
+    assign flushE = branch_sig;
+    // gen_flush_signal(branch_sig,stage);
 
     function [1:0]gen_forward_signal;
         input [4:0]reg_addr;
@@ -39,18 +43,22 @@ module hazard_control(
         input Ww_sig;
 
         if(Mw_sig && reg_addr!=5'b00000 && reg_addr===Mreg_addr)
-            gen_forward_signal = `WRITEMEM
+            gen_forward_signal = `WRITEMEM;
         else if(Ww_sig && reg_addr!=5'b00000 && reg_addr===Wreg_addr)
-            gen_forward_signal = `WRITEBACK
+            gen_forward_signal = `WRITEBACK;
         else
-            gen_forward_signal = `NORMAL
+            gen_forward_signal = `NORMAL;
     endfunction
 
     function gen_flush_signal;
         input branch_sig;
         input [2:0]stage;
-        if(branch_sig==1'b1 && stage <= d'2)begin
+
+        if(branch_sig==1'b1 || stage != 3'd0)begin
             gen_flush_signal = 1'b1;
+        end
+        else begin
+            gen_flush_signal = 1'b0;
         end
     endfunction
     
@@ -58,13 +66,16 @@ module hazard_control(
         stage <= 3'b0;
     end
     always@(posedge clk)begin
-        if(flushE)begin
-            stage <=3'd1;
-        end
-        else if(stage==3'd1)begin
-            stage <= 3'd2;
+        if(stage==3'd1)begin
+            stage <= 3'd0;
         end
         else if(stage==3'd2)begin
+            stage <= 3'd0;
+        end 
+        else if(flushE)begin
+            stage<=3'd1;
+        end
+        else begin
             stage <= 3'd0;
         end
     end

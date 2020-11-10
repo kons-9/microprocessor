@@ -4,7 +4,6 @@
 
 module datamem(
     input wire clk,
-    input wire [31:0]next_pc,
     input wire[2:0]info_load,
     input wire[1:0]info_store,
     input wire[31:0]alu_result,
@@ -13,11 +12,10 @@ module datamem(
     input wire write_reg,
     input wire [4:0]dst_addr,
     input wire [31:0] hc_OUT_data,
+    output wire [31:0]load_data,
 
-    output reg [31:0]next_pcD,
     output reg [31:0]rd_data,
     output reg w_reg,
-    output reg [31:0]branchD,
     output reg [4:0]dst_addrD
     );
 
@@ -26,9 +24,9 @@ module datamem(
     wire [31:0]byte_addr;
     wire [1:0]addr_rem; //addr's remainder
     wire [31:0]addr_data;
-    wire [31:0]load_data;
+    // wire [31:0]load_data;
     
-    integer i;
+    
 
     assign byte_addr = {{3{alu_result[31]}},alu_result[30:2]};// division by 4(because word length is 4byte)
     assign addr_rem = alu_result[1:0];// mod 4
@@ -43,18 +41,16 @@ module datamem(
         .data(load_data)
     );
     parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex";
-
+    // integer i;
     initial begin
-        //for (i=0; i < 70000; i = i+1)begin datamem[i] <= 32'h00000000;end
+        // for (i=0; i < 70000; i = i+1)begin datamem[i] <= 32'h00000000;end
         $readmemh(FILENAME, datamem);
     end
 
     always@(posedge clk)begin
         rd_data <= ((info_load==`Lw)&&(alu_result==`HARDWARE_COUNTER_ADDR))?hc_OUT_data:load_data;
         w_reg <= write_reg;
-        branchD <= alu_result;
         dst_addrD<=dst_addr;
-        next_pcD <= next_pc;
 
         case(info_store)
             `Sb:begin

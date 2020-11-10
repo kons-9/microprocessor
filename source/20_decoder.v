@@ -7,6 +7,7 @@ module decoder(
     input wire clk,
     input wire [31:0] pc1,
     input wire flush,
+    input wire [31:0]notbranchD,
 
     output wire [4:0] srcreg1_num,  // ソースレジスタ1番号
     output wire [4:0] srcreg2_num,  // ソースレジスタ2番号
@@ -22,10 +23,26 @@ module decoder(
     output reg [2:0] info_load,      // infomation of load, default is NOTLOAD
     output reg [1:0] info_store,     // infomation of store, default is NOTSTORE
     output reg [3:0] info_branch,    // infomation of branch, default is NOTBRANCH
-    output reg [31:0] pc2
+    output reg [31:0] pc2,
+    output reg [4:0]Ereg1_addr,
+    output reg [4:0]Ereg2_addr,
+    output reg [31:0]notbranch
     );
 
-    
+    initial begin
+        imm <= {{32{1'b0}}};
+        using_r2 <= `FALSE; //imm
+        using_pc <=`FALSE;
+        write_reg <= `FALSE;
+        info_load <= `NOTLOAD;
+        info_store <= `NOTSTORE;
+        info_branch <= `NOTBRANCH;
+        alucode <= `UNUSED;
+        dstreg_num <= {{5{1'b0}}};
+        Ereg1_addr <= {{5{1'b0}}};
+        Ereg2_addr <= {{5{1'b0}}};
+    end
+
     assign srcreg1_num = ir[19:15];
     assign srcreg2_num = ir[24:20];
 
@@ -41,11 +58,15 @@ module decoder(
             using_r2 <= `FALSE;
             using_pc <=`FALSE;
             alucode <= `UNUSED;
-            dstreg_num <= ir[11:7];
+            dstreg_num <= {{5{1'b0}}};
             pc2<=pc2;
+            notbranch<=notbranch;
+            Ereg1_addr <= {{5{1'b0}}};
+            Ereg2_addr <= {{5{1'b0}}};
         end
         else begin
             pc2 <= pc1;
+            notbranch<=notbranchD;
             case(ir[6:0])
             `IMMOP:begin
                 //type i
@@ -60,6 +81,8 @@ module decoder(
                 info_load <= `NOTLOAD;
                 info_store <= `NOTSTORE;
                 info_branch <= `NOTBRANCH;
+                Ereg1_addr <= srcreg1_num;
+                Ereg2_addr <= {{5{1'b0}}};
                 
                 
                 dstreg_num <= ir[11:7];
@@ -95,6 +118,8 @@ module decoder(
                 info_branch <= `NOTBRANCH;
                 
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= srcreg1_num;
+                Ereg2_addr <= srcreg2_num;
 
                 case(ir[14:12])
                     `OP_ADD:begin
@@ -130,6 +155,8 @@ module decoder(
                 info_branch <= `NOTBRANCH;
                 
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= {{5{1'b0}}};
+                Ereg2_addr <= {{5{1'b0}}};
 
                 alucode <=`LUI;
             end
@@ -148,6 +175,8 @@ module decoder(
                 info_branch <= `NOTBRANCH;
                 
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= {{5{1'b0}}};
+                Ereg2_addr <= {{5{1'b0}}};
 
                 alucode <=`ADD;//rd<-PC+imm
             end
@@ -166,6 +195,8 @@ module decoder(
                 info_branch <= `BJAL;
                 
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= {{5{1'b0}}};
+                Ereg2_addr <= {{5{1'b0}}};
 
                 alucode <=`ADD;//rd<- PC+4, PC<- PC+imm
             end
@@ -184,6 +215,8 @@ module decoder(
                 info_branch <= `BJALR;
                 
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= srcreg1_num;
+                Ereg2_addr <= {{5{1'b0}}};
 
                 alucode <= `ADD;//rd<- PC+4, PC<- rs1 +imm
             end
@@ -201,6 +234,8 @@ module decoder(
                 info_store <= `NOTSTORE;
                 
                 dstreg_num <= 5'b00000;
+                Ereg1_addr <= srcreg1_num;
+                Ereg2_addr <= srcreg2_num;
 
                 alucode <= `ADD;//if OP then PC <- PC+imm
                 
@@ -228,6 +263,8 @@ module decoder(
                 info_branch <= `NOTBRANCH;
                 
                 dstreg_num <= 5'b00000;
+                Ereg1_addr <= srcreg1_num;
+                Ereg2_addr <= srcreg2_num;
 
                 alucode <= `ADD;//imm + r1
                 case(ir[14:12])
@@ -252,6 +289,8 @@ module decoder(
                 info_branch <= `NOTBRANCH;
                 
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= srcreg1_num;
+                Ereg2_addr <= {{5{1'b0}}};
 
                 alucode <=`ADD;//imm + r1
 
@@ -269,6 +308,8 @@ module decoder(
                 info_branch <= `NOTBRANCH;
                 alucode <= `UNUSED;
                 dstreg_num <= ir[11:7];
+                Ereg1_addr <= {{5{1'b0}}};
+                Ereg2_addr <= {{5{1'b0}}};
             end
             endcase
         end
