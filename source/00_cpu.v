@@ -51,7 +51,7 @@ module cpu(
     wire [4:0]reg2_addr;
     wire [4:0]dstreg_addr;
     wire [31:0]imm;
-    wire [3:0]alucode;
+    wire [4:0]alucode;
     wire using_r2;
     wire using_pc;
     wire write_reg;

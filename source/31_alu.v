@@ -8,7 +8,7 @@ module alu(
     input wire [31:0]imm,  
     input wire [31:0]pc,
 
-    input wire [3:0]alucode,
+    input wire [4:0]alucode,
     input wire using_r2,//r2 or imm  
     input wire using_pc,//r1 or pc
     output wire [31:0] alu_result
@@ -23,7 +23,7 @@ module alu(
 
     function [31:0]ans;
         input [31:0] x,y;
-        input [3:0]alucode;
+        input [4:0]alucode;
         
         case(alucode)
             `ADD: ans = x+y;

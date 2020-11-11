@@ -20,7 +20,7 @@
 
 module alu_tb;
 
-    reg [3:0] code;
+    reg [4:0] code;
     reg [31:0] op1;
     reg [31:0] op2;
     wire [31:0] result;

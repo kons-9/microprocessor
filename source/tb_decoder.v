@@ -37,7 +37,7 @@ module decoder_tb;
     wire [4:0] srcreg2_num;
     wire [4:0] dstreg_num;
     wire [31:0] imm;
-    wire [3:0] alucode;
+    wire [4:0] alucode;
     wire using_r2;
     wire using_pc;
     wire write_reg;

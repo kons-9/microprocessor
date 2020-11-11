@@ -38,6 +38,15 @@
 `define OP_SR 3'b101
 `define OP_SRL 1'b0
 `define OP_SRA 1'b1
+
+`define OP_MUL 3'b000
+`define OP_MULH 3'b010
+`define OP_MULHSU 3'b011
+`define OP_MULHU 3'b100
+`define OP_DIV 3'b110
+`define OP_DIVU 3'b111
+`define OP_REM 3'b001
+`define OP_REMU 3'b1013
 //BOP
 `define OP_Beq 3'b000
 `define OP_Bne 3'b001
@@ -58,18 +67,27 @@
 
 
 //ALU
-`define ADD 4'b0000
-`define SUB 4'b0001 
-`define SLT 4'b0010
-`define SLTu 4'b0011
-`define SLL 4'b0100
-`define SRL 4'b0101 
-`define SRA 4'b0110 
-`define AND 4'b0111
-`define OR 4'b1000
-`define XOR 4'b1001
-`define LUI 4'b1010
-`define UNUSED 4'b1011
+`define ADD 5'b00000
+`define SUB 5'b00001 
+`define SLT 5'b00010
+`define SLTu 5'b00011
+`define SLL 5'b00100
+`define SRL 5'b00101 
+`define SRA 5'b00110 
+`define AND 5'b00111
+`define OR 5'b01000
+`define XOR 5'b01001
+`define LUI 5'b01010
+//M
+`define MUL 5'b10000
+`define MULH 5'b10001
+`define MULHSU 5'b10010
+`define MULHU 5'b10011
+`define DIV 5'b10100
+`define DIVU 5'b10101
+`define REM 5'b10110
+`define REMU 5'b10111
+`define UNUSED 5'b01111
 
 //store info
 `define NOTSTORE 2'b00 

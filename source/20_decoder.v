@@ -14,7 +14,7 @@ module decoder(
     output reg [4:0] dstreg_num,   // デスティネーションレジスタ番号
     output reg signed [31:0] imm,          // 即値
 
-    output reg [3:0] alucode,      // ALUcode 
+    output reg [4:0] alucode,      // ALUcode 
     output reg using_r2,  //  if true ,alu usse r2 instead of imm
     output reg using_pc,  // if True, alu use program counter instead of r1
 
@@ -95,9 +95,6 @@ module decoder(
                     `OP_SRi :alucode <= ir[30]?`SRA:`SRL;
                     default:alucode <=`UNUSED;
                 endcase
-
-            
-
             end
 
             `ROP:begin
@@ -117,23 +114,36 @@ module decoder(
                 Ereg1_addr <= srcreg1_num;
                 Ereg2_addr <= srcreg2_num;
 
-                case(ir[14:12])
-                    `OP_ADD:begin
-                    //OP_SUB and OP_ADD
-                        alucode<=ir[30]?`SUB:`ADD;
-                    end
-                    `OP_SLT : alucode<=`SLT;
-                    `OP_SLTu : alucode<=`SLTu;
-                    `OP_XOR : alucode <= `XOR;
-                    `OP_OR : alucode <= `OR;
-                    `OP_AND :alucode <= `AND;
-                    `OP_SLL :alucode <= `SLL;
-                    `OP_SR :begin
-                        //OP_SRA and OP_SRL
-                        alucode <= ir[30]?`SRA:`SRL;
-                    end
-                    default:alucode <=`UNUSED;
-                endcase
+                if(ir[25])begin
+                    case(ir[14:12])
+                        `OP_MUL: alucode <= `MUL;
+                        `OP_MULH: alucode <= `MULHSU;
+                        `OP_MULHSU: alucode <= `MULHSU;
+                        `OP_DIV: alucode <= `DIV;
+                        `OP_DIVU: alucode <= `DIVU;
+                        `OP_REM: alucode <= `REM;
+                        `OP_REMU: alucode <= `REMU;
+                        default: alucode <= `UNUSED;
+                end
+                else begin
+                    case(ir[14:12])
+                        `OP_ADD:begin
+                        //OP_SUB and OP_ADD
+                            alucode<=ir[30]?`SUB:`ADD;
+                        end
+                        `OP_SLT : alucode<=`SLT;
+                        `OP_SLTu : alucode<=`SLTu;
+                        `OP_XOR : alucode <= `XOR;
+                        `OP_OR : alucode <= `OR;
+                        `OP_AND :alucode <= `AND;
+                        `OP_SLL :alucode <= `SLL;
+                        `OP_SR :begin
+                            //OP_SRA and OP_SRL
+                            alucode <= ir[30]?`SRA:`SRL;
+                        end
+                        default:alucode <=`UNUSED;
+                    endcase
+                end
 
             end
 

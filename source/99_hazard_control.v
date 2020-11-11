@@ -1,5 +1,7 @@
 `timescale 1ns / 1ps
 
+`include "99_define.v"
+
 module hazard_control(
     input wire clk,
     input wire reset,
