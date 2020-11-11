@@ -16,7 +16,12 @@ module fetch(
     );
     
 
+<<<<<<< HEAD
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
+=======
+
+    //parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
+>>>>>>> 72a23004890c33ca4ae40af73c05ce1f0adcdba6
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
@@ -50,11 +55,23 @@ module fetch(
     assign next_pc = branch_sig ? branch_pc : pcplus4;
     
     always@(posedge clk or negedge reset)begin
+<<<<<<< HEAD
         pc1 <=  reset==1'b0 ? 32'h7FFC:
                 stallF ? pc1:next_pc ;
 
         ir <= stallD ? ir:ir_mem[ir_addr];
         npc <= stallD ? npc:next_pc;
+=======
+        if (reset ==0)begin
+            ir <= ir_mem[32'h00008000>>2];
+            pc1 <= 32'h8000;
+        end
+        else if(clk ==1)begin 
+            ir <= ir_mem[next_pc>>2];
+            pc1 <= next_pc;
+        end
+        else begin end
+>>>>>>> 72a23004890c33ca4ae40af73c05ce1f0adcdba6
     end
 
 endmodule

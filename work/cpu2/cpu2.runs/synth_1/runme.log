@@ -9,6 +9,9 @@
     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
 source gen_clk_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.1/data/ip'.
 Command: synth_design -top gen_clk_wrapper -part xc7a200tsbg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
@@ -16,94 +19,108 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6938
+INFO: [Synth 8-7075] Helper process launched with PID 30625
 CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module alu [/home/denjo/risc/source/31_alu.v:5]
 CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module gen_branch_signal [/home/denjo/risc/source/32_gen_branch_signal.v:5]
 CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module load [/home/denjo/risc/source/41_load.v:5]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 8299 ; free virtual = 14379
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2123.312 ; gain = 0.000 ; free physical = 6733 ; free virtual = 12923
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'gen_clk_wrapper' [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v:12]
+INFO: [Synth 8-6157] synthesizing module 'gen_clk' [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/synth/gen_clk.v:13]
+INFO: [Synth 8-6157] synthesizing module 'gen_clk_clk_wiz_0_0' [/home/denjo/risc/work/cpu2/cpu2.runs/synth_1/.Xil/Vivado-30602-DJ00308/realtime/gen_clk_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'gen_clk_clk_wiz_0_0' (1#1) [/home/denjo/risc/work/cpu2/cpu2.runs/synth_1/.Xil/Vivado-30602-DJ00308/realtime/gen_clk_clk_wiz_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'gen_clk' (2#1) [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/synth/gen_clk.v:13]
 INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/denjo/risc/source/00_cpu.v:16]
 INFO: [Synth 8-6157] synthesizing module 'fetch' [/home/denjo/risc/source/10_fetch.v:6]
 	Parameter FILENAME bound to: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex - type: string 
 INFO: [Synth 8-3876] $readmem data file '/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex' is read successfully [/home/denjo/risc/source/10_fetch.v:29]
-INFO: [Synth 8-6155] done synthesizing module 'fetch' (1#1) [/home/denjo/risc/source/10_fetch.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fetch' (3#1) [/home/denjo/risc/source/10_fetch.v:6]
 INFO: [Synth 8-6157] synthesizing module 'decoder' [/home/denjo/risc/source/20_decoder.v:5]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/20_decoder.v:87]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/20_decoder.v:120]
-INFO: [Synth 8-6155] done synthesizing module 'decoder' (2#1) [/home/denjo/risc/source/20_decoder.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'decoder' (4#1) [/home/denjo/risc/source/20_decoder.v:5]
 INFO: [Synth 8-6157] synthesizing module 'execute' [/home/denjo/risc/source/30_execute.v:6]
 INFO: [Synth 8-6157] synthesizing module 'alu' [/home/denjo/risc/source/31_alu.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'alu' (3#1) [/home/denjo/risc/source/31_alu.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (5#1) [/home/denjo/risc/source/31_alu.v:5]
 INFO: [Synth 8-6157] synthesizing module 'gen_branch_signal' [/home/denjo/risc/source/32_gen_branch_signal.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'gen_branch_signal' (4#1) [/home/denjo/risc/source/32_gen_branch_signal.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'execute' (5#1) [/home/denjo/risc/source/30_execute.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'gen_branch_signal' (6#1) [/home/denjo/risc/source/32_gen_branch_signal.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'execute' (7#1) [/home/denjo/risc/source/30_execute.v:6]
 INFO: [Synth 8-6157] synthesizing module 'datamem' [/home/denjo/risc/source/40_datamem.v:5]
 	Parameter FILENAME bound to: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex - type: string 
 INFO: [Synth 8-3876] $readmem data file '/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex' is read successfully [/home/denjo/risc/source/40_datamem.v:47]
 INFO: [Synth 8-6157] synthesizing module 'load' [/home/denjo/risc/source/41_load.v:5]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/41_load.v:24]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/41_load.v:33]
-INFO: [Synth 8-6155] done synthesizing module 'load' (6#1) [/home/denjo/risc/source/41_load.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'load' (8#1) [/home/denjo/risc/source/41_load.v:5]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/40_datamem.v:57]
-INFO: [Synth 8-6155] done synthesizing module 'datamem' (7#1) [/home/denjo/risc/source/40_datamem.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'datamem' (9#1) [/home/denjo/risc/source/40_datamem.v:5]
 INFO: [Synth 8-6157] synthesizing module 'regfile' [/home/denjo/risc/source/99_regfile.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [/home/denjo/risc/source/99_regfile.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (10#1) [/home/denjo/risc/source/99_regfile.v:5]
 INFO: [Synth 8-6157] synthesizing module 'hazard_control' [/home/denjo/risc/source/99_hazard_control.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'hazard_control' (9#1) [/home/denjo/risc/source/99_hazard_control.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'hazard_control' (11#1) [/home/denjo/risc/source/99_hazard_control.v:3]
 INFO: [Synth 8-6157] synthesizing module 'hardware_counter' [/home/denjo/risc/source/99_hardware_counter.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'hardware_counter' (10#1) [/home/denjo/risc/source/99_hardware_counter.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'hardware_counter' (12#1) [/home/denjo/risc/source/99_hardware_counter.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart' [/home/denjo/risc/source/99_uart.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'uart' (11#1) [/home/denjo/risc/source/99_uart.v:1]
-INFO: [Synth 8-6155] done synthesizing module 'cpu' (12#1) [/home/denjo/risc/source/00_cpu.v:16]
-INFO: [Synth 8-6155] done synthesizing module 'gen_clk_wrapper' (13#1) [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v:12]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (13#1) [/home/denjo/risc/source/99_uart.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cpu' (14#1) [/home/denjo/risc/source/00_cpu.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'gen_clk_wrapper' (15#1) [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 8354 ; free virtual = 14436
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2134.203 ; gain = 10.891 ; free physical = 6806 ; free virtual = 12998
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2126.160 ; gain = 2.844 ; free physical = 8353 ; free virtual = 14434
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2134.203 ; gain = 10.891 ; free physical = 6806 ; free virtual = 12998
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2126.160 ; gain = 2.844 ; free physical = 8353 ; free virtual = 14434
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2134.203 ; gain = 10.891 ; free physical = 6806 ; free virtual = 12998
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2126.160 ; gain = 0.000 ; free physical = 8343 ; free virtual = 14425
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2134.203 ; gain = 0.000 ; free physical = 6797 ; free virtual = 12988
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_in_context.xdc] for cell 'gen_clk_i/clk_wiz_0'
+WARNING: [Vivado 12-584] No ports matched ''. [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_in_context.xdc:1]
+WARNING: [Vivado 12-584] No ports matched ''. [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_in_context.xdc:4]
+Finished Parsing XDC File [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_in_context.xdc] for cell 'gen_clk_i/clk_wiz_0'
 Parsing XDC File [/home/denjo/risc/practice/nexys.xdc]
 Finished Parsing XDC File [/home/denjo/risc/practice/nexys.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/denjo/risc/practice/nexys.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/gen_clk_wrapper_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/gen_clk_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [/home/denjo/risc/work/cpu2/cpu2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [/home/denjo/risc/work/cpu2/cpu2.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2283.973 ; gain = 0.000 ; free physical = 8249 ; free virtual = 14331
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2297.016 ; gain = 0.000 ; free physical = 6704 ; free virtual = 12895
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2283.973 ; gain = 0.000 ; free physical = 8249 ; free virtual = 14331
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2297.016 ; gain = 0.000 ; free physical = 6704 ; free virtual = 12895
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8328 ; free virtual = 14409
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2297.016 ; gain = 173.703 ; free physical = 6781 ; free virtual = 12972
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8328 ; free virtual = 14409
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2297.016 ; gain = 173.703 ; free physical = 6781 ; free virtual = 12972
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for sysclk. (constraint file  /home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_in_context.xdc, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for sysclk. (constraint file  /home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_in_context.xdc, line 6).
+Applied set_property DONT_TOUCH = true for gen_clk_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for gen_clk_i/clk_wiz_0. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8328 ; free virtual = 14409
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2297.016 ; gain = 173.703 ; free physical = 6781 ; free virtual = 12972
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8312 ; free virtual = 14394
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 2297.016 ; gain = 173.703 ; free physical = 6765 ; free virtual = 12958
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -165,7 +182,7 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:16 ; elapsed = 00:02:19 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8239 ; free virtual = 14321
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:19 ; elapsed = 00:02:22 . Memory (MB): peak = 2297.016 ; gain = 173.703 ; free physical = 6691 ; free virtual = 12891
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -195,13 +212,13 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:21 ; elapsed = 00:02:25 . Memory (MB): peak = 2287.957 ; gain = 164.641 ; free physical = 8093 ; free virtual = 14175
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:24 ; elapsed = 00:02:28 . Memory (MB): peak = 2297.016 ; gain = 173.703 ; free physical = 6553 ; free virtual = 12754
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:31 ; elapsed = 00:02:35 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8046 ; free virtual = 14129
+Finished Timing Optimization : Time (s): cpu = 00:02:35 ; elapsed = 00:02:39 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6499 ; free virtual = 12699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -253,7 +270,7 @@ INFO: [Synth 8-7052] The timing for the instance cpu0/fetch0/ir_reg_0_28 (implem
 INFO: [Synth 8-7052] The timing for the instance cpu0/fetch0/ir_reg_0_29 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance cpu0/fetch0/ir_reg_0_30 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:35 ; elapsed = 00:02:39 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Technology Mapping : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -271,86 +288,87 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:38 ; elapsed = 00:02:42 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished IO Insertion : Time (s): cpu = 00:02:42 ; elapsed = 00:02:46 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:38 ; elapsed = 00:02:42 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:42 ; elapsed = 00:02:46 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:43 ; elapsed = 00:02:47 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:43 ; elapsed = 00:02:47 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8054 ; free virtual = 14137
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:43 ; elapsed = 00:02:47 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8054 ; free virtual = 14137
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:43 ; elapsed = 00:02:47 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------------+----------+
+|      |BlackBox name       |Instances |
++------+--------------------+----------+
+|1     |gen_clk_clk_wiz_0_0 |         1|
++------+--------------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |BUFG      |     1|
-|2     |CARRY4    |    73|
-|3     |LUT1      |     8|
-|4     |LUT2      |   198|
-|5     |LUT3      |   211|
-|6     |LUT4      |   319|
-|7     |LUT5      |   365|
-|8     |LUT6      |  1950|
-|9     |MUXF7     |   490|
-|10    |MUXF8     |   245|
-|11    |RAM16X1S  |    32|
-|12    |RAM256X1S |  4096|
-|13    |RAM32M    |    12|
-|14    |RAMB36E1  |    31|
-|45    |FDCE      |    86|
-|46    |FDPE      |    14|
-|47    |FDRE      |   353|
-|48    |FDSE      |     9|
-|49    |IBUF      |     2|
-|50    |OBUF      |     1|
-+------+----------+------+
++------+------------------+------+
+|      |Cell              |Count |
++------+------------------+------+
+|1     |gen_clk_clk_wiz_0 |     1|
+|2     |CARRY4            |    73|
+|3     |LUT1              |     8|
+|4     |LUT2              |   198|
+|5     |LUT3              |   211|
+|6     |LUT4              |   319|
+|7     |LUT5              |   365|
+|8     |LUT6              |  1950|
+|9     |MUXF7             |   490|
+|10    |MUXF8             |   245|
+|11    |RAM16X1S          |    32|
+|12    |RAM256X1S         |  4096|
+|13    |RAM32M            |    12|
+|14    |RAMB36E1          |    31|
+|45    |FDCE              |    86|
+|46    |FDPE              |    14|
+|47    |FDRE              |   353|
+|48    |FDSE              |     9|
+|49    |IBUF              |     1|
+|50    |OBUF              |     1|
++------+------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8054 ; free virtual = 14137
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:43 ; elapsed = 00:02:47 . Memory (MB): peak = 2404.016 ; gain = 280.703 ; free physical = 6505 ; free virtual = 12706
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:37 ; elapsed = 00:02:41 . Memory (MB): peak = 2392.973 ; gain = 111.844 ; free physical = 8108 ; free virtual = 14191
-Synthesis Optimization Complete : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.980 ; gain = 269.656 ; free physical = 8108 ; free virtual = 14191
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:41 ; elapsed = 00:02:45 . Memory (MB): peak = 2404.016 ; gain = 117.891 ; free physical = 6559 ; free virtual = 12760
+Synthesis Optimization Complete : Time (s): cpu = 00:02:43 ; elapsed = 00:02:47 . Memory (MB): peak = 2404.023 ; gain = 280.703 ; free physical = 6559 ; free virtual = 12760
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2392.980 ; gain = 0.000 ; free physical = 8181 ; free virtual = 14264
+Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2404.023 ; gain = 0.000 ; free physical = 6633 ; free virtual = 12833
 INFO: [Netlist 29-17] Analyzing 4979 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2424.988 ; gain = 0.000 ; free physical = 8099 ; free virtual = 14182
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2436.031 ; gain = 0.000 ; free physical = 6551 ; free virtual = 12752
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4140 instances were transformed.
   RAM16X1S => RAM32X1S (RAMS32): 32 instances
@@ -358,9 +376,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-79 Infos, 0 Warnings, 3 Critical Warnings and 0 Errors encountered.
+86 Infos, 2 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:51 ; elapsed = 00:02:53 . Memory (MB): peak = 2424.988 ; gain = 301.797 ; free physical = 8308 ; free virtual = 14390
+synth_design: Time (s): cpu = 00:02:56 ; elapsed = 00:02:58 . Memory (MB): peak = 2436.031 ; gain = 312.844 ; free physical = 6763 ; free virtual = 12964
 INFO: [Common 17-1381] The checkpoint '/home/denjo/risc/work/cpu2/cpu2.runs/synth_1/gen_clk_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file gen_clk_wrapper_utilization_synth.rpt -pb gen_clk_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 11 10:01:49 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 11 12:35:50 2020...

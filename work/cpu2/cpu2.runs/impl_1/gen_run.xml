@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1605056324">
+<GenRun Id="impl_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1605065559">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="gen_clk_wrapper.vdi"/>
   <File Type="BG-DRC" Name="gen_clk_wrapper.drc"/>
@@ -77,6 +77,13 @@
   <File Type="PA-TCL" Name="gen_clk_wrapper.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/bd/gen_clk/gen_clk.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../../source/00_cpu.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -86,14 +93,6 @@
     </File>
     <File Path="$PSRCDIR/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/bd/gen_clk/gen_clk.bd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -134,5 +133,4 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="gen_clk_clk_wiz_0_0"/>
 </GenRun>

@@ -1,0 +1,214 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
+| Date         : Wed Nov 11 12:42:26 2020
+| Host         : DJ00308 running 64-bit Ubuntu 18.04.5 LTS
+| Command      : report_control_sets -verbose -file gen_clk_wrapper_control_sets_placed.rpt
+| Design       : gen_clk_wrapper
+| Device       : xc7a200t
+--------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   136 |
+|    Minimum number of control sets                        |   136 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    22 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   136 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     0 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     1 |
+| >= 14 to < 16      |     0 |
+| >= 16              |   134 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             134 |           67 |
+| No           | No                    | Yes                    |              86 |           23 |
+| No           | Yes                   | No                     |             107 |           57 |
+| Yes          | No                    | No                     |             125 |           87 |
+| Yes          | No                    | Yes                    |              14 |            5 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++------------------------------------+-------------------------------------------+--------------------------+------------------+----------------+--------------+
+|            Clock Signal            |               Enable Signal               |     Set/Reset Signal     | Slice Load Count | Bel Load Count | Bels / Slice |
++------------------------------------+-------------------------------------------+--------------------------+------------------+----------------+--------------+
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/uart0/uart_tx0                       | cpu0/uart0/cpu_resetn    |                1 |              1 |         1.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/uart0/shifter                        | cpu0/uart0/cpu_resetn    |                4 |             13 |         3.25 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_12   |                          |                8 |             32 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 |                                           | cpu0/uart0/cpu_resetn    |               23 |             86 |         3.74 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/datamem0/p_0_in                      |                          |               12 |             96 |         8.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 |                                           | cpu0/execute0/branch_sig |               57 |            107 |         1.88 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/branch_signal_reg_0         |                          |               87 |            125 |         1.44 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_12       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_4    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_6    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_7    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_8    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_9    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_0        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_10       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_11       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_37   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_13       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_14       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_15       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_16       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_17       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_2        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_38   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_4        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_36   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_35   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_34   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_33   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_32   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_31   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_30   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_3    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_29   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_28   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_27   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_26   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_25   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_24   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_7        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_0        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[1]_0         |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_9        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_8        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_7        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_6        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_5        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_4        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_3        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_2        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_11       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_10       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[17]_0        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_9        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_8        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_3        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_6        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_4        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_3        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_2        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_13       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_12       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_11       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_10       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[16]_1        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_9        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_8        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_7        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_6        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[15]_5        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep_1    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__4_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_10       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_1        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_0        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__6_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__6_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__4_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__3_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__3_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__2_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__1_0 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep__0_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep_2    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[11]_rep_1    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__6_0 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__4_3 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_22   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__4_0 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__3_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__3_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__2_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__2_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__1_4 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__1_3 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__1_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__1_0 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__0_4 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__0_3 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__0_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep__0_1 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_rep_2    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_2        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_2        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_23   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_21   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_20   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_2    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_19   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_18   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_17   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_16   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_15   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_14   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_13   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[10]_1        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_11   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_10   |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[14]_rep_1    |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_6 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_11       |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_3        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_4        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_5        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_6        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_7        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_8        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[12]_9        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_0        |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_0 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_2 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_3 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_4 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_5 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 | cpu0/execute0/alu_result_reg[13]_rep__0_7 |                          |               32 |            128 |         4.00 |
+|  gen_clk_i/clk_wiz_0/inst/clk_out1 |                                           |                          |               67 |            134 |         2.00 |
++------------------------------------+-------------------------------------------+--------------------------+------------------+----------------+--------------+
+
+

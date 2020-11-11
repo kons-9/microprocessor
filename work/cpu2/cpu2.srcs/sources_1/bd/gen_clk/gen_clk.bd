@@ -56,11 +56,20 @@
           "CLKOUT1_JITTER": {
             "value": "151.636"
           },
+          "CLKOUT1_PHASE_ERROR": {
+            "value": "98.575"
+          },
           "CLKOUT1_REQUESTED_OUT_FREQ": {
             "value": "50"
           },
+          "MMCM_CLKFBOUT_MULT_F": {
+            "value": "10.000"
+          },
           "MMCM_CLKOUT0_DIVIDE_F": {
             "value": "20.000"
+          },
+          "MMCM_DIVCLK_DIVIDE": {
+            "value": "1"
           },
           "USE_LOCKED": {
             "value": "false"

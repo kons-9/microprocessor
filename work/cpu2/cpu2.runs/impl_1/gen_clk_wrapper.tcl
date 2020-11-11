@@ -133,21 +133,29 @@ OPTRACE "set parameters" START { }
   set_property parent.project_path /home/denjo/risc/work/cpu2/cpu2.xpr [current_project]
   set_property ip_output_repo /home/denjo/risc/work/cpu2/cpu2.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet /home/denjo/risc/work/cpu2/cpu2.runs/synth_1/gen_clk_wrapper.dcp
+  set_msg_config -source 4 -id {BD 41-1661} -limit 0
+  set_param project.isImplRun true
+  add_files /home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/gen_clk.bd
+  set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc /home/denjo/risc/practice/nexys.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
+  set_param project.isImplRun true
   link_design -top gen_clk_wrapper -part xc7a200tsbg484-1
 OPTRACE "link_design" END { }
+  set_param project.isImplRun false
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
 OPTRACE "init_design_reports" START { REPORT }
 OPTRACE "init_design_reports" END { }
 OPTRACE "init_design_write_hwdef" START { }
+  write_hwdef -force -file gen_clk_wrapper.hwdef
 OPTRACE "init_design_write_hwdef" END { }
   close_msg_db -file init_design.pb
 } RESULT]
@@ -302,6 +310,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force gen_clk_wrapper.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }
