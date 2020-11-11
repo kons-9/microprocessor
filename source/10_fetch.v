@@ -16,20 +16,20 @@ module fetch(
     );
     
 
-    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks_mul/tests/ControlTransfer/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
-    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks_mul/Coremark_for_Synthesis/code.hex";
 
     reg [31:0]ir_mem[0:16384];
     initial begin
         $readmemh(FILENAME, ir_mem);
     end
 
-    reg [31:0]pc1;
+    reg unsigned [31:0]pc1;
     
     wire [31:0]next_pc;
     wire [31:0]pcplus4;

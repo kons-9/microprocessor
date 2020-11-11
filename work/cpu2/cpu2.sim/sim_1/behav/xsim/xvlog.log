@@ -1,11 +1,6 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module gen_clk_clk_wiz_0_0_clk_wiz
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module gen_clk_clk_wiz_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/gen_clk/sim/gen_clk.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module gen_clk
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/00_cpu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fetch
+WARNING: [VRFC 10-8370] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/denjo/risc/source/10_fetch.v:32]
 INFO: [VRFC 10-311] analyzing module decoder
 INFO: [VRFC 10-311] analyzing module alu
 INFO: [VRFC 10-311] analyzing module gen_branch_signal
@@ -21,6 +16,11 @@ WARNING: [VRFC 10-3609] overwriting previous definition of module 'load' [/home/
 INFO: [VRFC 10-311] analyzing module regfile
 INFO: [VRFC 10-311] analyzing module uart
 INFO: [VRFC 10-311] analyzing module hazard_control
+WARNING: [VRFC 10-8370] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/denjo/risc/source/99_hazard_control.v:71]
+WARNING: [VRFC 10-986] literal value truncated to fit in 3 bits [/home/denjo/risc/source/99_hazard_control.v:81]
+WARNING: [VRFC 10-3380] identifier 'cnt' is used before its declaration [/home/denjo/risc/source/99_hazard_control.v:36]
+WARNING: [VRFC 10-3380] identifier 'cnt' is used before its declaration [/home/denjo/risc/source/99_hazard_control.v:37]
+WARNING: [VRFC 10-3380] identifier 'cnt' is used before its declaration [/home/denjo/risc/source/99_hazard_control.v:39]
 INFO: [VRFC 10-311] analyzing module hardware_counter
 INFO: [VRFC 10-311] analyzing module cpu
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v" into library xil_defaultlib

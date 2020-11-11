@@ -70,7 +70,7 @@ module hazard_control(
         input [4:0]alucode;
         input unsigned [2:0]cnt;
 
-        case(alucode):
+        case(alucode)
             `MUL,`MULH,`MULHSU,`MULHU:begin
                 nextcnt = (cnt<=`MULSTALL)?cnt+1:3'b0;
             end
@@ -80,7 +80,7 @@ module hazard_control(
             `REM,`REMU:begin
                 nextcnt = (cnt<=`REMSTALL)?cnt+1:3'b0;
             end
-            default: nextcnt = 3'd0
+            default: nextcnt = 3'd0;
         endcase
     endfunction
 endmodule

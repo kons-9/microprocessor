@@ -124,6 +124,7 @@ module decoder(
                         `OP_REM: alucode <= `REM;
                         `OP_REMU: alucode <= `REMU;
                         default: alucode <= `UNUSED;
+                    endcase
                 end
                 else begin
                     case(ir[14:12])

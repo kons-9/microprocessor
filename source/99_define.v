@@ -46,7 +46,7 @@
 `define OP_DIV 3'b110
 `define OP_DIVU 3'b111
 `define OP_REM 3'b001
-`define OP_REMU 3'b1013
+`define OP_REMU 3'b101
 //BOP
 `define OP_Beq 3'b000
 `define OP_Bne 3'b001
@@ -90,9 +90,9 @@
 `define UNUSED 5'b01111
 
 //stall time
-`define MULSTALL 3'd4
-`define DIVSTALL 3'd5
-`define REMSTALL 3'd8
+`define MULSTALL 3'd7
+`define DIVSTALL 3'd7
+`define REMSTALL 3'd7
 
 //store info
 `define NOTSTORE 2'b00 

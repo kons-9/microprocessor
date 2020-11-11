@@ -16,22 +16,27 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200
 INFO: [Device 21-403] Loading part xc7a200tsbg484-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 4 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6938
+INFO: [Synth 8-7075] Helper process launched with PID 1193
+WARNING: [Synth 8-2277] keyword 'unsigned' is not allowed here in this mode of verilog [/home/denjo/risc/source/10_fetch.v:32]
 CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module alu [/home/denjo/risc/source/31_alu.v:5]
 CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module gen_branch_signal [/home/denjo/risc/source/32_gen_branch_signal.v:5]
 CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module load [/home/denjo/risc/source/41_load.v:5]
+WARNING: [Synth 8-2277] keyword 'unsigned' is not allowed here in this mode of verilog [/home/denjo/risc/source/99_hazard_control.v:71]
+WARNING: [Synth 8-6901] identifier 'cnt' is used before its declaration [/home/denjo/risc/source/99_hazard_control.v:36]
+WARNING: [Synth 8-6901] identifier 'cnt' is used before its declaration [/home/denjo/risc/source/99_hazard_control.v:37]
+WARNING: [Synth 8-6901] identifier 'cnt' is used before its declaration [/home/denjo/risc/source/99_hazard_control.v:39]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 8299 ; free virtual = 14379
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 6538 ; free virtual = 13331
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'gen_clk_wrapper' [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v:12]
 INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/denjo/risc/source/00_cpu.v:16]
 INFO: [Synth 8-6157] synthesizing module 'fetch' [/home/denjo/risc/source/10_fetch.v:6]
-	Parameter FILENAME bound to: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex - type: string 
-INFO: [Synth 8-3876] $readmem data file '/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex' is read successfully [/home/denjo/risc/source/10_fetch.v:29]
+	Parameter FILENAME bound to: /home/denjo/risc/b3exp/benchmarks_mul/Coremark_for_Synthesis/code.hex - type: string 
+INFO: [Synth 8-3876] $readmem data file '/home/denjo/risc/b3exp/benchmarks_mul/Coremark_for_Synthesis/code.hex' is read successfully [/home/denjo/risc/source/10_fetch.v:29]
 INFO: [Synth 8-6155] done synthesizing module 'fetch' (1#1) [/home/denjo/risc/source/10_fetch.v:6]
 INFO: [Synth 8-6157] synthesizing module 'decoder' [/home/denjo/risc/source/20_decoder.v:5]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/20_decoder.v:87]
-INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/20_decoder.v:120]
+INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/20_decoder.v:130]
 INFO: [Synth 8-6155] done synthesizing module 'decoder' (2#1) [/home/denjo/risc/source/20_decoder.v:5]
 INFO: [Synth 8-6157] synthesizing module 'execute' [/home/denjo/risc/source/30_execute.v:6]
 INFO: [Synth 8-6157] synthesizing module 'alu' [/home/denjo/risc/source/31_alu.v:5]
@@ -40,18 +45,20 @@ INFO: [Synth 8-6157] synthesizing module 'gen_branch_signal' [/home/denjo/risc/s
 INFO: [Synth 8-6155] done synthesizing module 'gen_branch_signal' (4#1) [/home/denjo/risc/source/32_gen_branch_signal.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'execute' (5#1) [/home/denjo/risc/source/30_execute.v:6]
 INFO: [Synth 8-6157] synthesizing module 'datamem' [/home/denjo/risc/source/40_datamem.v:5]
-	Parameter FILENAME bound to: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex - type: string 
-INFO: [Synth 8-3876] $readmem data file '/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex' is read successfully [/home/denjo/risc/source/40_datamem.v:47]
+	Parameter FILENAME bound to: /home/denjo/risc/b3exp/benchmarks_mul/Coremark_for_Synthesis/data.hex - type: string 
+INFO: [Synth 8-3876] $readmem data file '/home/denjo/risc/b3exp/benchmarks_mul/Coremark_for_Synthesis/data.hex' is read successfully [/home/denjo/risc/source/40_datamem.v:49]
 INFO: [Synth 8-6157] synthesizing module 'load' [/home/denjo/risc/source/41_load.v:5]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/41_load.v:24]
 INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/41_load.v:33]
 INFO: [Synth 8-6155] done synthesizing module 'load' (6#1) [/home/denjo/risc/source/41_load.v:5]
-INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/40_datamem.v:57]
+INFO: [Synth 8-226] default block is never used [/home/denjo/risc/source/40_datamem.v:59]
 INFO: [Synth 8-6155] done synthesizing module 'datamem' (7#1) [/home/denjo/risc/source/40_datamem.v:5]
 INFO: [Synth 8-6157] synthesizing module 'regfile' [/home/denjo/risc/source/99_regfile.v:5]
 INFO: [Synth 8-6155] done synthesizing module 'regfile' (8#1) [/home/denjo/risc/source/99_regfile.v:5]
-INFO: [Synth 8-6157] synthesizing module 'hazard_control' [/home/denjo/risc/source/99_hazard_control.v:3]
-INFO: [Synth 8-6155] done synthesizing module 'hazard_control' (9#1) [/home/denjo/risc/source/99_hazard_control.v:3]
+INFO: [Synth 8-6157] synthesizing module 'hazard_control' [/home/denjo/risc/source/99_hazard_control.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'hazard_control' (9#1) [/home/denjo/risc/source/99_hazard_control.v:5]
+WARNING: [Synth 8-7071] port 'alucode' of module 'hazard_control' is unconnected for instance 'hazard_control0' [/home/denjo/risc/source/00_cpu.v:172]
+WARNING: [Synth 8-7023] instance 'hazard_control0' of module 'hazard_control' has 16 connections declared, but only 15 given [/home/denjo/risc/source/00_cpu.v:172]
 INFO: [Synth 8-6157] synthesizing module 'hardware_counter' [/home/denjo/risc/source/99_hardware_counter.v:6]
 INFO: [Synth 8-6155] done synthesizing module 'hardware_counter' (10#1) [/home/denjo/risc/source/99_hardware_counter.v:6]
 INFO: [Synth 8-6157] synthesizing module 'uart' [/home/denjo/risc/source/99_uart.v:1]
@@ -59,18 +66,18 @@ INFO: [Synth 8-6155] done synthesizing module 'uart' (11#1) [/home/denjo/risc/so
 INFO: [Synth 8-6155] done synthesizing module 'cpu' (12#1) [/home/denjo/risc/source/00_cpu.v:16]
 INFO: [Synth 8-6155] done synthesizing module 'gen_clk_wrapper' (13#1) [/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v:12]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 8354 ; free virtual = 14436
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 6598 ; free virtual = 13392
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2126.160 ; gain = 2.844 ; free physical = 8353 ; free virtual = 14434
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2129.129 ; gain = 5.812 ; free physical = 6596 ; free virtual = 13390
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2126.160 ; gain = 2.844 ; free physical = 8353 ; free virtual = 14434
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 2129.129 ; gain = 5.812 ; free physical = 6596 ; free virtual = 13390
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2126.160 ; gain = 0.000 ; free physical = 8343 ; free virtual = 14425
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2129.129 ; gain = 0.000 ; free physical = 6584 ; free virtual = 13378
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -81,47 +88,49 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/gen_clk_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2283.973 ; gain = 0.000 ; free physical = 8249 ; free virtual = 14331
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2287.941 ; gain = 0.000 ; free physical = 6492 ; free virtual = 13286
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2283.973 ; gain = 0.000 ; free physical = 8249 ; free virtual = 14331
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2287.941 ; gain = 0.000 ; free physical = 6492 ; free virtual = 13286
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8328 ; free virtual = 14409
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2287.941 ; gain = 164.625 ; free physical = 6572 ; free virtual = 13366
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8328 ; free virtual = 14409
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2287.941 ; gain = 164.625 ; free physical = 6572 ; free virtual = 13366
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8328 ; free virtual = 14409
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2287.941 ; gain = 164.625 ; free physical = 6572 ; free virtual = 13366
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8312 ; free virtual = 14394
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 2287.941 ; gain = 164.625 ; free physical = 6552 ; free virtual = 13347
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   4 Input   64 Bit       Adders := 1     
 	   2 Input   32 Bit       Adders := 3     
 	   3 Input   32 Bit       Adders := 1     
 	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 1     
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
 	               32 Bit    Registers := 9     
 	               31 Bit    Registers := 1     
 	                9 Bit    Registers := 1     
-	                5 Bit    Registers := 5     
-	                4 Bit    Registers := 3     
-	                3 Bit    Registers := 2     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 3     
 	                2 Bit    Registers := 2     
 	                1 Bit    Registers := 7     
 +---RAMs : 
@@ -129,24 +138,28 @@ Detailed RTL Component Info :
 +---ROMs : 
 	                    ROMs := 1     
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 11    
+	   2 Input   64 Bit        Muxes := 2     
+	   3 Input   64 Bit        Muxes := 2     
+	   2 Input   32 Bit        Muxes := 20    
 	   7 Input   32 Bit        Muxes := 1     
 	   4 Input   32 Bit        Muxes := 8     
 	   2 Input   29 Bit        Muxes := 1     
 	   2 Input    9 Bit        Muxes := 1     
 	   4 Input    8 Bit        Muxes := 1     
-	  10 Input    5 Bit        Muxes := 3     
+	  10 Input    5 Bit        Muxes := 4     
+	   9 Input    5 Bit        Muxes := 1     
 	   8 Input    4 Bit        Muxes := 2     
-	  10 Input    4 Bit        Muxes := 2     
 	   7 Input    4 Bit        Muxes := 1     
+	  10 Input    4 Bit        Muxes := 1     
 	   2 Input    4 Bit        Muxes := 1     
 	  10 Input    3 Bit        Muxes := 2     
-	   2 Input    3 Bit        Muxes := 2     
+	   2 Input    3 Bit        Muxes := 3     
+	   4 Input    3 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
 	  10 Input    2 Bit        Muxes := 1     
 	   3 Input    2 Bit        Muxes := 2     
-	   2 Input    1 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 4     
 	  10 Input    1 Bit        Muxes := 3     
 	   7 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -164,19 +177,49 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
+DSP Report: Generating DSP mul, operation Mode is: A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: PCIN+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: PCIN+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: PCIN+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: PCIN+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: Generating DSP mul, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mul is absorbed into DSP mul.
+DSP Report: operator mul is absorbed into DSP mul.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:16 ; elapsed = 00:02:19 . Memory (MB): peak = 2283.973 ; gain = 160.656 ; free physical = 8239 ; free virtual = 14321
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:24 ; elapsed = 00:02:27 . Memory (MB): peak = 2287.941 ; gain = 164.625 ; free physical = 6504 ; free virtual = 13287
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
 
 ROM: Preliminary Mapping	Report
-+----------------+--------------------+---------------+----------------+
-|Module Name     | RTL Object         | Depth x Width | Implemented As | 
-+----------------+--------------------+---------------+----------------+
-|gen_clk_wrapper | cpu0/fetch0/ir_reg | 32768x31      | Block RAM      | 
-+----------------+--------------------+---------------+----------------+
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|fetch       | ir_reg     | 32768x31      | Block RAM      | 
++------------+------------+---------------+----------------+
 
 
 Distributed RAM: Preliminary Mapping	Report (see note below)
@@ -188,6 +231,24 @@ Distributed RAM: Preliminary Mapping	Report (see note below)
 +----------------+----------------------------+-----------+----------------------+---------------------------------+
 
 Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping	Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B       | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B       | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 13     | 13     | -      | -      | 13     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B       | 13     | 13     | -      | -      | 13     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B       | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 18     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
 Finished ROM, RAM, DSP and Shift Register Reporting
 ---------------------------------------------------------------------------------
@@ -195,13 +256,13 @@ Finished ROM, RAM, DSP and Shift Register Reporting
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:21 ; elapsed = 00:02:25 . Memory (MB): peak = 2287.957 ; gain = 164.641 ; free physical = 8093 ; free virtual = 14175
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:30 ; elapsed = 00:02:34 . Memory (MB): peak = 2303.926 ; gain = 180.609 ; free physical = 6333 ; free virtual = 13117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:02:31 ; elapsed = 00:02:35 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8046 ; free virtual = 14129
+Finished Timing Optimization : Time (s): cpu = 00:02:49 ; elapsed = 00:02:53 . Memory (MB): peak = 2654.496 ; gain = 531.180 ; free physical = 6066 ; free virtual = 12850
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -253,7 +314,7 @@ INFO: [Synth 8-7052] The timing for the instance cpu0/fetch0/ir_reg_0_28 (implem
 INFO: [Synth 8-7052] The timing for the instance cpu0/fetch0/ir_reg_0_29 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 INFO: [Synth 8-7052] The timing for the instance cpu0/fetch0/ir_reg_0_30 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:02:35 ; elapsed = 00:02:39 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Technology Mapping : Time (s): cpu = 00:02:54 ; elapsed = 00:02:58 . Memory (MB): peak = 2654.496 ; gain = 531.180 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -271,37 +332,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:02:38 ; elapsed = 00:02:42 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished IO Insertion : Time (s): cpu = 00:02:57 ; elapsed = 00:03:01 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:02:38 ; elapsed = 00:02:42 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:57 ; elapsed = 00:03:01 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:59 ; elapsed = 00:03:03 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8053 ; free virtual = 14136
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:59 ; elapsed = 00:03:03 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8054 ; free virtual = 14137
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:59 ; elapsed = 00:03:03 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8054 ; free virtual = 14137
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:59 ; elapsed = 00:03:03 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -318,39 +379,40 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |BUFG      |     1|
-|2     |CARRY4    |    73|
-|3     |LUT1      |     8|
-|4     |LUT2      |   198|
-|5     |LUT3      |   211|
-|6     |LUT4      |   319|
-|7     |LUT5      |   365|
-|8     |LUT6      |  1950|
-|9     |MUXF7     |   490|
-|10    |MUXF8     |   245|
-|11    |RAM16X1S  |    32|
-|12    |RAM256X1S |  4096|
-|13    |RAM32M    |    12|
-|14    |RAMB36E1  |    31|
-|45    |FDCE      |    86|
-|46    |FDPE      |    14|
-|47    |FDRE      |   353|
-|48    |FDSE      |     9|
-|49    |IBUF      |     2|
-|50    |OBUF      |     1|
+|2     |CARRY4    |   657|
+|3     |DSP48E1   |    10|
+|4     |LUT1      |     8|
+|5     |LUT2      |   191|
+|6     |LUT3      |  1935|
+|7     |LUT4      |   361|
+|8     |LUT5      |   686|
+|9     |LUT6      |  2110|
+|10    |MUXF7     |   577|
+|11    |MUXF8     |   235|
+|12    |RAM16X1S  |    32|
+|13    |RAM256X1S |  4096|
+|14    |RAM32M    |    12|
+|15    |RAMB36E1  |    31|
+|46    |FDCE      |    86|
+|47    |FDPE      |    14|
+|48    |FDRE      |   354|
+|49    |FDSE      |    10|
+|50    |IBUF      |     2|
+|51    |OBUF      |     1|
 +------+----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.973 ; gain = 269.656 ; free physical = 8054 ; free virtual = 14137
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:59 ; elapsed = 00:03:03 . Memory (MB): peak = 2657.465 ; gain = 534.148 ; free physical = 6070 ; free virtual = 12854
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:37 ; elapsed = 00:02:41 . Memory (MB): peak = 2392.973 ; gain = 111.844 ; free physical = 8108 ; free virtual = 14191
-Synthesis Optimization Complete : Time (s): cpu = 00:02:39 ; elapsed = 00:02:43 . Memory (MB): peak = 2392.980 ; gain = 269.656 ; free physical = 8108 ; free virtual = 14191
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:57 ; elapsed = 00:03:01 . Memory (MB): peak = 2657.465 ; gain = 375.336 ; free physical = 6129 ; free virtual = 12912
+Synthesis Optimization Complete : Time (s): cpu = 00:02:59 ; elapsed = 00:03:03 . Memory (MB): peak = 2657.473 ; gain = 534.148 ; free physical = 6129 ; free virtual = 12912
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2392.980 ; gain = 0.000 ; free physical = 8181 ; free virtual = 14264
-INFO: [Netlist 29-17] Analyzing 4979 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.14 . Memory (MB): peak = 2657.473 ; gain = 0.000 ; free physical = 6202 ; free virtual = 12986
+INFO: [Netlist 29-17] Analyzing 5650 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2424.988 ; gain = 0.000 ; free physical = 8099 ; free virtual = 14182
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 2689.480 ; gain = 0.000 ; free physical = 6122 ; free virtual = 12906
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 4140 instances were transformed.
   RAM16X1S => RAM32X1S (RAMS32): 32 instances
@@ -358,9 +420,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-79 Infos, 0 Warnings, 3 Critical Warnings and 0 Errors encountered.
+79 Infos, 7 Warnings, 3 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:02:51 ; elapsed = 00:02:53 . Memory (MB): peak = 2424.988 ; gain = 301.797 ; free physical = 8308 ; free virtual = 14390
+synth_design: Time (s): cpu = 00:03:13 ; elapsed = 00:03:15 . Memory (MB): peak = 2689.480 ; gain = 566.289 ; free physical = 6533 ; free virtual = 13317
 INFO: [Common 17-1381] The checkpoint '/home/denjo/risc/work/cpu2/cpu2.runs/synth_1/gen_clk_wrapper.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file gen_clk_wrapper_utilization_synth.rpt -pb gen_clk_wrapper_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 11 10:01:49 2020...
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 11 22:42:14 2020...

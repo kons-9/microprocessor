@@ -1,8 +1,5 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../cpu2.srcs/sources_1/bd/gen_clk/ipshared/8b3d" \
-"../../../../cpu2.ip_user_files/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_clk_wiz.v" \
-"../../../../cpu2.ip_user_files/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0.v" \
-"../../../../cpu2.ip_user_files/bd/gen_clk/sim/gen_clk.v" \
 "../../../../../../source/00_cpu.v" \
 "../../../../cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v" \
 "../../../../../../source/tb_cpu.v" \

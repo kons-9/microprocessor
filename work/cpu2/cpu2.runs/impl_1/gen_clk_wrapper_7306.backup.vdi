@@ -1,0 +1,248 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Nov 11 10:01:54 2020
+# Process ID: 7306
+# Current directory: /home/denjo/risc/work/cpu2/cpu2.runs/impl_1
+# Command line: vivado -log gen_clk_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source gen_clk_wrapper.tcl -notrace
+# Log file: /home/denjo/risc/work/cpu2/cpu2.runs/impl_1/gen_clk_wrapper.vdi
+# Journal file: /home/denjo/risc/work/cpu2/cpu2.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source gen_clk_wrapper.tcl -notrace
+Command: link_design -top gen_clk_wrapper -part xc7a200tsbg484-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a200tsbg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2123.316 ; gain = 0.000 ; free physical = 8624 ; free virtual = 14699
+INFO: [Netlist 29-17] Analyzing 4979 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/denjo/risc/practice/nexys.xdc]
+Finished Parsing XDC File [/home/denjo/risc/practice/nexys.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2179.219 ; gain = 0.000 ; free physical = 8490 ; free virtual = 14565
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 4140 instances were transformed.
+  RAM16X1S => RAM32X1S (RAMS32): 32 instances
+  RAM256X1S => RAM256X1S (MUXF7(x2), MUXF8, RAMS64E(x4)): 4096 instances
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
+
+7 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 2179.219 ; gain = 56.027 ; free physical = 8490 ; free virtual = 14565
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 2243.250 ; gain = 64.031 ; free physical = 8482 ; free virtual = 14557
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1d95bfb13
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 2632.422 ; gain = 389.172 ; free physical = 8017 ; free virtual = 14092
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 1d95bfb13
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.87 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7897 ; free virtual = 13975
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: 1df89098e
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:00.93 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7897 ; free virtual = 13975
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: 1798faae3
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:01 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7896 ; free virtual = 13975
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: 1798faae3
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7896 ; free virtual = 13974
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: 1798faae3
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7896 ; free virtual = 13974
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: 1798faae3
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7896 ; free virtual = 13974
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7896 ; free virtual = 13974
+Ending Logic Optimization Task | Checksum: 1fa3355ed
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2795.359 ; gain = 0.000 ; free physical = 7896 ; free virtual = 13974
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 31 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 0 Total Ports: 62
+Ending PowerOpt Patch Enables Task | Checksum: 1fa3355ed
+
+Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.16 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7846 ; free virtual = 13920
+Ending Power Optimization Task | Checksum: 1fa3355ed
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:11 . Memory (MB): peak = 3201.242 ; gain = 405.883 ; free physical = 7863 ; free virtual = 13938
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 1fa3355ed
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7863 ; free virtual = 13938
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7863 ; free virtual = 13938
+Ending Netlist Obfuscation Task | Checksum: 1fa3355ed
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7863 ; free virtual = 13938
+INFO: [Common 17-83] Releasing license: Implementation
+29 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:25 . Memory (MB): peak = 3201.242 ; gain = 1022.023 ; free physical = 7863 ; free virtual = 13938
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.01 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7861 ; free virtual = 13937
+INFO: [Common 17-1381] The checkpoint '/home/denjo/risc/work/cpu2/cpu2.runs/impl_1/gen_clk_wrapper_opt.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_drc -file gen_clk_wrapper_drc_opted.rpt -pb gen_clk_wrapper_drc_opted.pb -rpx gen_clk_wrapper_drc_opted.rpx
+Command: report_drc -file gen_clk_wrapper_drc_opted.rpt -pb gen_clk_wrapper_drc_opted.pb -rpx gen_clk_wrapper_drc_opted.rpx
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.1/data/ip'.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/denjo/risc/work/cpu2/cpu2.runs/impl_1/gen_clk_wrapper_drc_opted.rpt.
+report_drc completed successfully
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a200t'
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+WARNING: [DRC CHECK-3] Report rule limit reached: REQP-1839 rule limit reached: 20 violations have been found.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[13] (net: cpu0/fetch0/ADDRARDADDR[13]) which is driven by a register (cpu0/fetch0/pc1_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[13] (net: cpu0/fetch0/ADDRARDADDR[13]) which is driven by a register (cpu0/fetch0/pc1_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[13] (net: cpu0/fetch0/ADDRARDADDR[13]) which is driven by a register (cpu0/fetch0/pc1_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[13] (net: cpu0/fetch0/ADDRARDADDR[13]) which is driven by a register (cpu0/fetch0/pc1_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[10]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[11]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[12]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[13]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[14]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[15]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[16]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[1]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[2]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[3]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[4]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[5]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[6]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[7]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[8]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+WARNING: [DRC REQP-1839] RAMB36 async control check: The RAMB36E1 cpu0/fetch0/ir_reg_0_0 has an input control pin cpu0/fetch0/ir_reg_0_0/ADDRARDADDR[14] (net: cpu0/fetch0/ADDRARDADDR[14]) which is driven by a register (cpu0/fetch0/pc1_reg[9]) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 21 Warnings
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7850 ; free virtual = 13927
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: fa60ca17
+
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.06 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7850 ; free virtual = 13927
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7850 ; free virtual = 13927
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 4ae59201
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7784 ; free virtual = 13861
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: a20262b3
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:12 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7699 ; free virtual = 13776
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: a20262b3
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:12 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7699 ; free virtual = 13776
+Phase 1 Placer Initialization | Checksum: a20262b3
+
+Time (s): cpu = 00:00:23 ; elapsed = 00:00:12 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7696 ; free virtual = 13773
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 8ec15279
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:14 . Memory (MB): peak = 3201.242 ; gain = 0.000 ; free physical = 7671 ; free virtual = 13748
+
+Phase 2.2 Global Placement Core
+
+Phase 2.2.1 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 168 LUTNM shape to break, 22 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 7, two critical 161, total 168, new lutff created 1
+INFO: [Physopt 32-775] End 1 Pass. Optimized 178 nets or cells. Created 168 new cells, deleted 10 existing cells and moved 0 existing cell
+INFO: [Physopt 32-76] Pass 1. Identified 8 candidate nets for fanout optimization.
+INFO: [Physopt 32-81] Processed net cpu0/execute0/alu_result_reg[15]_1[0]. Replicated 12 times.
+INFO: [Physopt 32-81] Processed net cpu0/execute0/alu_result_reg[15]_1[1]. Replicated 4 times.
+INFO: [Physopt 32-81] Processed net cpu0/execute0/alu_result_reg[15]_1[2]. Replicated 8 times.
+INFO: [Physopt 32-81] Processed net cpu0/execute0/alu_result_reg[15]_1[3]. Replicated 4 times.

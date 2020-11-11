@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1605056324">
+<GenRun Id="impl_1" LaunchPart="xc7a200tsbg484-1" LaunchTime="1605101926">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="RDI-RDI" Name="gen_clk_wrapper.vdi"/>
   <File Type="BG-DRC" Name="gen_clk_wrapper.drc"/>
@@ -134,5 +134,4 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="gen_clk_clk_wiz_0_0"/>
 </GenRun>
