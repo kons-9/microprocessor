@@ -13,7 +13,7 @@
 module cpu(
     input wire sysclk,
     input wire cpu_resetn,
-    input wire uart_tx
+    output wire uart_tx
     );
     // the number of stage is five.
     //1st stage is fetch.
