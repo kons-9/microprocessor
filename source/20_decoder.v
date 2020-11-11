@@ -7,7 +7,6 @@ module decoder(
     input wire clk,
     input wire [31:0] pc1,
     input wire flush,
-    input wire [31:0]notbranchD,
 
     output wire [4:0] srcreg1_num,  // ソースレジスタ1番号
     output wire [4:0] srcreg2_num,  // ソースレジスタ2番号
@@ -25,8 +24,7 @@ module decoder(
     output reg [3:0] info_branch,    // infomation of branch, default is NOTBRANCH
     output reg [31:0] pc2,
     output reg [4:0]Ereg1_addr,
-    output reg [4:0]Ereg2_addr,
-    output reg [31:0]notbranch
+    output reg [4:0]Ereg2_addr
     );
 
     initial begin
@@ -60,13 +58,11 @@ module decoder(
             alucode <= `UNUSED;
             dstreg_num <= {{5{1'b0}}};
             pc2<=pc2;
-            notbranch<=notbranch;
             Ereg1_addr <= {{5{1'b0}}};
             Ereg2_addr <= {{5{1'b0}}};
         end
         else begin
             pc2 <= pc1;
-            notbranch<=notbranchD;
             case(ir[6:0])
             `IMMOP:begin
                 //type i

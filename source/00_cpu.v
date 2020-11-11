@@ -3,7 +3,10 @@
 `include "10_fetch.v"
 `include "20_decoder.v"
 `include "30_execute.v"
+`include "31_alu.v"
+`include "32_gen_branch_signal.v"
 `include "40_datamem.v"
+`include "41_load.v"
 `include "99_define.v"
 `include "99_regfile.v"
 `include "99_uart.v"
@@ -26,7 +29,6 @@ module cpu(
     wire branch_sig;
     wire stallF;
     wire stallD;
-    wire [31:0]notbranchD;
     wire [31:0]branch_pc;
     wire [31:0]npc;
 
@@ -40,8 +42,7 @@ module cpu(
         .stallD(stallD),
 
         .ir(ir),
-        .npc(npc),
-        .notbranch(notbranchD)
+        .npc(npc)
     );
 
     wire flushE;
@@ -60,7 +61,6 @@ module cpu(
     wire [31:0] pc2;
     wire [4:0] Ereg1_addr;
     wire [4:0] Ereg2_addr;
-    wire [31:0] notbranchE;
 
     //decode
     decoder decoder0(
@@ -69,7 +69,6 @@ module cpu(
         .ir(ir),
         .pc1(npc),
         .flush(flushE),
-        .notbranchD(notbranchD),
         //output
         .srcreg1_num(reg1_addr),
         .srcreg2_num(reg2_addr),
@@ -84,8 +83,7 @@ module cpu(
         .info_branch(info_branch),
         .pc2(pc2),
         .Ereg1_addr(Ereg1_addr),
-        .Ereg2_addr(Ereg2_addr),
-        .notbranch(notbranchE)
+        .Ereg2_addr(Ereg2_addr)
     );
     wire flushD;
     wire [31:0]load_data;
@@ -117,7 +115,6 @@ module cpu(
         .forward_sig2(forward_sig2),
         .forward_data_writemem(load_data),
         .forward_data_writeback(rd_dataD),
-        .notbranch(notbranchE),
         .write_reg(write_reg),//unused
         .info_load(info_load),//unused
         .info_store(info_store),//unused

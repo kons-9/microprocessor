@@ -1,6 +1,9 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../../../source/00_cpu.v" \
+"../../../../../../source/31_alu.v" \
+"../../../../../../source/32_gen_branch_signal.v" \
+"../../../../../../source/41_load.v" \
 "../../../../../../source/tb_cpu.v" \
 
 # compile glbl module

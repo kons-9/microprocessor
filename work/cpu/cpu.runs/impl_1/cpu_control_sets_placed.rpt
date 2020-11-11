@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date         : Tue Nov 10 17:11:58 2020
+| Date         : Tue Nov 10 20:15:11 2020
 | Host         : DJ00308 running 64-bit Ubuntu 18.04.5 LTS
 | Command      : report_control_sets -verbose -file cpu_control_sets_placed.rpt
 | Design       : cpu
@@ -27,7 +27,7 @@ Table of Contents
 |    Minimum number of control sets                        |   136 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    17 |
+| Unused register locations in slices containing registers |    13 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -58,11 +58,11 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             268 |          139 |
-| No           | No                    | Yes                    |              86 |           23 |
-| No           | Yes                   | No                     |              63 |           27 |
-| Yes          | No                    | No                     |              64 |           36 |
-| Yes          | No                    | Yes                    |              14 |            5 |
+| No           | No                    | No                     |             384 |          272 |
+| No           | No                    | Yes                    |              86 |           30 |
+| No           | Yes                   | No                     |              63 |           31 |
+| Yes          | No                    | No                     |              32 |           17 |
+| Yes          | No                    | Yes                    |              14 |            4 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,46 +73,46 @@ Table of Contents
 +-------------------+--------------------------------------+---------------------+------------------+----------------+--------------+
 |    Clock Signal   |             Enable Signal            |   Set/Reset Signal  | Slice Load Count | Bel Load Count | Bels / Slice |
 +-------------------+--------------------------------------+---------------------+------------------+----------------+--------------+
-|  sysclk_IBUF_BUFG | uart0/d_reg[28]_0                    | uart0/cpu_resetn    |                1 |              1 |         1.00 |
-|  sysclk_IBUF_BUFG | execute0/E[0]                        | uart0/cpu_resetn    |                4 |             13 |         3.25 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_7        |                     |                8 |             32 |         4.00 |
-|  sysclk_IBUF_BUFG |                                      | decoder0/branch_sig |               27 |             63 |         2.33 |
-|  sysclk_IBUF_BUFG | decoder0/p_0_in                      |                     |               36 |             64 |         1.78 |
-|  sysclk_IBUF_BUFG |                                      | uart0/cpu_resetn    |               23 |             86 |         3.74 |
+|  sysclk_IBUF_BUFG | uart0/uart_tx0                       | uart0/cpu_resetn    |                1 |              1 |         1.00 |
+|  sysclk_IBUF_BUFG | uart0/shifter                        | uart0/cpu_resetn    |                3 |             13 |         4.33 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_8    |                     |                8 |             32 |         4.00 |
+|  sysclk_IBUF_BUFG | decoder0/p_0_in                      |                     |               17 |             32 |         1.88 |
+|  sysclk_IBUF_BUFG |                                      | decoder0/branch_sig |               31 |             63 |         2.03 |
+|  sysclk_IBUF_BUFG |                                      | uart0/cpu_resetn    |               30 |             86 |         2.87 |
 |  sysclk_IBUF_BUFG | datamem0/p_0_in                      |                     |               12 |             96 |         8.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_38       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_15       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_39       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_4        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_5        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_6        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_8        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_9        |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_4    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_17       |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_5    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_6    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_7    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_9    |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_1        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_10       |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_11       |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_12       |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_13       |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_14       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_23       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_37       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_36       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_35       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_34       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_33       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_32       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_31       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_30       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_3        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_29       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_28       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_27       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_26       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_25       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_24       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep_1    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_15       |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_16       |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_24   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_38   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_37   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_36   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_35   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_34   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_33   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_32   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_31   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_30   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_3    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_29   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_28   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_27   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_26   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_25   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_1        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[16]_6        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/info_storeE_reg[0]_0        |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[1]_0         |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[17]_9        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[17]_8        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[17]_7        |                     |               32 |            128 |         4.00 |
@@ -144,15 +144,15 @@ Table of Contents
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_4        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[15]_3        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__2_1 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__5_0 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__5_2 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__5_3 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__7_1 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__4_0 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__4_2 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__4_3 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__6_1 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep_1    |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep_2    |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__0_1 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__1_1 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__4_2 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__3_2 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__3_1 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__3_2 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__4_1 |                     |               32 |            128 |         4.00 |
@@ -160,55 +160,55 @@ Table of Contents
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[11]_rep__6_2 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_0        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_1        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_21       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__4_1 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__3_2 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_22   |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__3_1 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__2_4 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__2_3 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__2_2 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__2_1 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__1_4 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__1_3 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__1_2 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__1_1 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__0_4 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__0_3 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__0_2 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__0_0 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep_3    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep__0_1 |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep_2    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_3        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_22       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_20       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_2        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_19       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_18       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_17       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_16       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_15       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_14       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_13       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_12       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_11       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_10       |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_1        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__1_4 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__1_2 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_rep_0    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_2        |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[10]_0        |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_11       |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_23   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_21   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_20   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_2    |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_19   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_18   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_17   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_16   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_15   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_14   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_13   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_12   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_11   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[14]_rep_10   |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_7 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_5 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_10       |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_2        |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_3        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_4        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_5        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_6        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_7        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_8        |                     |               32 |            128 |         4.00 |
 |  sysclk_IBUF_BUFG | execute0/alu_result_reg[12]_9        |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep_1    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep_2    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep_4    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep_5    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep_6    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep_7    |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__1_1 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__1_3 |                     |               32 |            128 |         4.00 |
-|  sysclk_IBUF_BUFG |                                      |                     |              139 |            268 |         1.93 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_0        |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_1 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_2 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_3 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_4 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG | execute0/alu_result_reg[13]_rep__0_6 |                     |               32 |            128 |         4.00 |
+|  sysclk_IBUF_BUFG |                                      |                     |              272 |            384 |         1.41 |
 +-------------------+--------------------------------------+---------------------+------------------+----------------+--------------+
 
 

@@ -12,7 +12,7 @@ module cpu_tb;
         sysclk = ~sysclk;
     end 
 
-    cpu cpu0(
+    gen_clk_wrapper gen_clk_wrapper0(
         .sysclk(sysclk),
         .cpu_resetn(cpu_resetn),
         .uart_tx(uart_tx)

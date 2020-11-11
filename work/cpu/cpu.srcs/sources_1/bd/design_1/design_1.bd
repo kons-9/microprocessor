@@ -1,0 +1,89 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xAB83023870B4FD5C",
+      "device": "xc7a200tsbg484-1",
+      "name": "design_1",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "clk_wiz_0": ""
+    },
+    "ports": {
+      "sys_clk": {
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "",
+            "value_src": "weak"
+          },
+          "FREQ_HZ": {
+            "value": "",
+            "value_src": "weak"
+          },
+          "PHASE": {
+            "value": "",
+            "value_src": "weak"
+          }
+        }
+      },
+      "cpu_clk": {
+        "direction": "O",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "/clk_wiz_0_clk_out1",
+            "value_src": "ip_prop"
+          },
+          "FREQ_HZ": {
+            "value": "50000000",
+            "value_src": "ip_prop"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "ip_prop"
+          }
+        }
+      }
+    },
+    "components": {
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "design_1_clk_wiz_0_0",
+        "parameters": {
+          "CLKOUT1_JITTER": {
+            "value": "151.636"
+          },
+          "CLKOUT1_REQUESTED_OUT_FREQ": {
+            "value": "50"
+          },
+          "MMCM_CLKOUT0_DIVIDE_F": {
+            "value": "20.000"
+          },
+          "USE_LOCKED": {
+            "value": "false"
+          },
+          "USE_RESET": {
+            "value": "false"
+          }
+        }
+      }
+    },
+    "nets": {
+      "clk_wiz_0_clk_out1": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "cpu_clk"
+        ]
+      },
+      "sys_clk_1": {
+        "ports": [
+          "sys_clk",
+          "clk_wiz_0/clk_in1"
+        ]
+      }
+    }
+  }
+}

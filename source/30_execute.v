@@ -25,13 +25,12 @@ module execute(
     input wire [1:0]info_store,
     input wire [3:0]info_branch,
     input wire [4:0]dstreg_addr,
-    input wire [31:0]notbranch,
 
     input wire flush,
 
     output reg [31:0] alu_result,
-    output wire branch_signal,
-    output wire [31:0]branch_pc,
+    output reg branch_signal,
+    output reg [31:0]branch_pc,
     output reg [31:0]rs2E,
     output reg write_regE,
     output reg [2:0]info_loadE,
@@ -42,6 +41,7 @@ module execute(
     wire [31:0] ans;
     wire [31:0]alu_var1;
     wire [31:0]alu_var2;
+    
 
     assign alu_var1 =   forward_sig1==`NORMAL ? r1_data:
                         forward_sig1==`WRITEMEM ? forward_data_writemem:
@@ -60,17 +60,18 @@ module execute(
         .alu_result(ans)
     );
 
-    // wire branch_sig;
+    wire branch_sig;
 
     gen_branch_signal gen_branch_signal0 (
         .info_branch(info_branch),
         .reg1(alu_var1),
         .reg2(alu_var2),
 
-        .branch_signal(branch_signal)
+        .branch_signal(branch_sig)
     );
 
-    assign branch_pc = ans;
+    wire [31:0]notbranch;
+    assign notbranch = pc+4;
 
     always@(posedge clk)begin
         if(flush)begin
@@ -81,6 +82,8 @@ module execute(
 
             rs2E <= rs2E;
             alu_result <= alu_result;
+            branch_signal <= 1'b0;
+            branch_pc <= 32'd0;
         end
         else begin
             case(info_branch)
@@ -91,7 +94,8 @@ module execute(
                     alu_result <= ans;
                 end
             endcase
-
+            branch_pc <= ans;
+            branch_signal <= branch_sig;
             rs2E <= alu_var2;
             write_regE <= write_reg;
             info_loadE <= info_load;

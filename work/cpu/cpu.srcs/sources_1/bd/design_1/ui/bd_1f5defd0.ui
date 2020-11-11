@@ -1,0 +1,31 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Addressing View_ExpandedHierarchyInLayout":"",
+   "Addressing View_Layout":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+levelinfo -pg 1 0 10
+pagesize -pg 1 -db -bbox -sgen 0 0 10 10
+",
+   "Addressing View_ScaleFactor":"1.0",
+   "Addressing View_TopLeft":"-459,-235",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-363,-504",
+   "ExpandedHierarchyInLayout":"",
+   "Interfaces View_ScaleFactor":"1.0",
+   "Interfaces View_TopLeft":"-459,-249",
+   "Reduced Jogs_ScaleFactor":"1.0",
+   "Reduced Jogs_TopLeft":"-462,-185",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:9.0 TLS
+#  -string -flagsOSRD
+preplace port sys_clk -pg 1 -lvl 0 -x -20 -y -250 -defaultsOSRD
+preplace port cpu_clk -pg 1 -lvl 2 -x 220 -y -250 -defaultsOSRD
+preplace inst clk_wiz_0 -pg 1 -lvl 1 -x 100 -y -250 -defaultsOSRD
+preplace netloc clk_wiz_0_clk_out1 1 1 1 N -250
+preplace netloc sys_clk_1 1 0 1 N -250
+levelinfo -pg 1 -20 100 220
+pagesize -pg 1 -db -bbox -sgen -120 -320 330 140
+"
+}
+{
+   "da_board_cnt":"1"
+}

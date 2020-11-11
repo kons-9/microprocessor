@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-| Date             : Tue Nov 10 17:14:14 2020
+| Date             : Tue Nov 10 20:20:49 2020
 | Host             : DJ00308 running 64-bit Ubuntu 18.04.5 LTS
 | Command          : report_power -file cpu_power_routed.rpt -pb cpu_power_summary_routed.pb -rpx cpu_power_routed.rpx
 | Design           : cpu
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.193        |
+| Total On-Chip Power (W)  | 0.433        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.053        |
-| Device Static (W)        | 0.140        |
+| Dynamic (W)              | 0.291        |
+| Device Static (W)        | 0.141        |
 | Effective TJA (C/W)      | 3.3          |
-| Max Ambient (C)          | 84.4         |
-| Junction Temperature (C) | 25.6         |
+| Max Ambient (C)          | 83.6         |
+| Junction Temperature (C) | 26.4         |
 | Confidence Level         | Medium       |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,19 +52,19 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.003 |        3 |       --- |             --- |
-| Slice Logic              |     0.011 |    33099 |       --- |             --- |
-|   LUT as Distributed RAM |     0.007 |    16464 |     46200 |           35.64 |
-|   LUT as Logic           |     0.003 |     2680 |    133800 |            2.00 |
-|   F7/F8 Muxes            |     0.001 |    13035 |    133800 |            9.74 |
-|   Register               |    <0.001 |      495 |    267600 |            0.18 |
-|   CARRY4                 |    <0.001 |       73 |     33450 |            0.22 |
+| Clocks                   |     0.017 |        3 |       --- |             --- |
+| Slice Logic              |     0.054 |    33114 |       --- |             --- |
+|   LUT as Distributed RAM |     0.034 |    16464 |     46200 |           35.64 |
+|   LUT as Logic           |     0.014 |     2798 |    133800 |            2.09 |
+|   F7/F8 Muxes            |     0.006 |    13023 |    133800 |            9.73 |
+|   Register               |    <0.001 |      579 |    267600 |            0.22 |
+|   CARRY4                 |    <0.001 |       65 |     33450 |            0.19 |
 |   Others                 |     0.000 |       19 |       --- |             --- |
-| Signals                  |     0.033 |     6662 |       --- |             --- |
-| Block RAM                |     0.006 |       31 |       365 |            8.49 |
+| Signals                  |     0.192 |     6845 |       --- |             --- |
+| Block RAM                |     0.028 |       31 |       365 |            8.49 |
 | I/O                      |    <0.001 |        3 |       285 |            1.05 |
-| Static Power             |     0.140 |          |           |                 |
-| Total                    |     0.193 |          |           |                 |
+| Static Power             |     0.141 |          |           |                 |
+| Total                    |     0.433 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -74,7 +74,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.084 |       0.053 |      0.031 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.321 |       0.288 |      0.032 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.031 |       0.000 |      0.031 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.005 |       0.000 |      0.005 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -83,7 +83,7 @@ Table of Contents
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
-| Vccbram   |       1.000 |     0.002 |       0.000 |      0.001 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.004 |       0.002 |      0.001 |       NA    | Unspecified | NA         |
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
@@ -130,7 +130,7 @@ Table of Contents
 +-------------+--------+-----------------+
 | Clock       | Domain | Constraint (ns) |
 +-------------+--------+-----------------+
-| sys_clk_pin | sysclk |           100.0 |
+| sys_clk_pin | sysclk |            20.0 |
 +-------------+--------+-----------------+
 
 
@@ -140,13 +140,16 @@ Table of Contents
 3.1 By Hierarchy
 ----------------
 
-+------------+-----------+
-| Name       | Power (W) |
-+------------+-----------+
-| cpu        |     0.053 |
-|   datamem0 |     0.017 |
-|   execute0 |     0.029 |
-|   fetch0   |     0.006 |
-+------------+-----------+
++------------------------+-----------+
+| Name                   | Power (W) |
++------------------------+-----------+
+| cpu                    |     0.291 |
+|   datamem0             |     0.102 |
+|   decoder0             |     0.011 |
+|   execute0             |     0.147 |
+|     alu0               |     0.001 |
+|     gen_branch_signal0 |     0.002 |
+|   fetch0               |     0.030 |
++------------------------+-----------+
 
 
