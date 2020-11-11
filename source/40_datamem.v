@@ -21,7 +21,7 @@ module datamem(
     output reg [4:0]dst_addrD
     );
 
-    reg [31:0]datamem[0:70000];//word length equal to 4byte. datamem is byte addressing memory.
+    reg [31:0]datamem[0:32768];//word length equal to 4byte. datamem is byte addressing memory.
 
     wire [31:0]byte_addr;
     wire [1:0]addr_rem; //addr's remainder

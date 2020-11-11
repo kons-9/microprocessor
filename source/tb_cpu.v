@@ -26,7 +26,7 @@ module cpu_tb;
         cpu_resetn = 1'b0;
         #(CYC);
         cpu_resetn = 1'b1;
-        #10000000000 $finish;
+        #1000000 $finish;
     end
 
 

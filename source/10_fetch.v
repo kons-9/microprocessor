@@ -11,7 +11,7 @@ module fetch(
     output reg [31:0]pc1
     );
     wire eq,sl,slu;
-    reg [31:0]ir_mem[0:70000];
+    reg [31:0]ir_mem[0:16384];
 
 
     //parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
