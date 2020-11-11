@@ -89,6 +89,11 @@
 `define REMU 5'b10111
 `define UNUSED 5'b01111
 
+//stall time
+`define MULSTALL 3'd4
+`define DIVSTALL 3'd5
+`define REMSTALL 3'd8
+
 //store info
 `define NOTSTORE 2'b00 
 `define Sb 2'b01
