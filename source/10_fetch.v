@@ -18,24 +18,20 @@ module fetch(
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
-    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
+    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
-    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
 
     initial begin
         $readmemh(FILENAME, ir_mem);
     end
 
-    always@(posedge clk or negedge reset)begin
-        if (reset ==0)begin
-            ir <= ir_mem[32'h00008000>>2];
-            pc1 <= 32'h8000;
-        end
-        else if(clk ==1)begin 
-            ir <= ir_mem[next_pc>>2];
-            pc1 <= next_pc;
-        end
-        else begin end
+    always@(posedge clk)begin
+       ir <= ir_mem[next_pc>>2];
+    end
+    
+    always@(posedge clk)begin
+        pc1 <= next_pc;
     end
 
 endmodule

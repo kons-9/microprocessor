@@ -29,7 +29,7 @@ module decoder(
         case(ir[6:0])
         `IMMOP:begin
             //type i
-            if(ir[13:12]===2'b01)imm <= {{28{ir[24]}},ir[23:20]};
+            if(ir[13:12]==2'b01)imm <= {{28{ir[24]}},ir[23:20]};
             else imm <={{20{ir[31]}},ir[31:20]};
 
             using_r2 <= `FALSE; //imm

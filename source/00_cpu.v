@@ -25,7 +25,7 @@ module cpu(
     reg fclk,dclk,eclk,mclk,wclk;
 
     initial begin
-        fclk<=0;
+        fclk<=1;
         dclk<=0;
         eclk<=0;
         mclk<=0;
@@ -171,6 +171,7 @@ module cpu(
     //writeback
     writeback writeback0(
         //input
+        .reset(cpu_resetn),
         .clk(wclk),
         .branch(branchD),
         .w_reg(w_regD),
@@ -226,7 +227,7 @@ module cpu(
         .uart_wr_i(uart_we),
 
         .uart_dat_i(uart_IN_data),
-        .sys_clk_i(sysclk),
+        .sys_clk_i(wclk),
         .sys_rstn_i(cpu_resetn)
     );
 
