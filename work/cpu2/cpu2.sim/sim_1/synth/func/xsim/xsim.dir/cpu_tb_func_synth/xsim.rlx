@@ -1,0 +1,12 @@
+
+{ 
+    crc :  6269727144859182914  , 
+    ccp_crc :  0  , 
+    cmdline : " -wto 26dd921ec1604845a7275c6a811fa575 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L secureip --snapshot cpu_tb_func_synth xil_defaultlib.cpu_tb xil_defaultlib.glbl" , 
+    buildDate : "May 27 2020" , 
+    buildTime : "19:59:15" , 
+    linkCmd : "/usr/bin/gcc -Wa,-W  -O -fPIC  -m64  -Wl,--no-as-needed  -Wl,--unresolved-symbols=ignore-all  -o \"xsim.dir/cpu_tb_func_synth/xsimk\"   \"xsim.dir/cpu_tb_func_synth/obj/xsim_0.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_1.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_2.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_3.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_4.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_5.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_6.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_7.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_8.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_9.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_10.lnx64.o\" \"xsim.dir/cpu_tb_func_synth/obj/xsim_11.lnx64.o\" -L\"/opt/Xilinx/Vivado/2020.1/lib/lnx64.o\" -lrdi_simulator_kernel   -lrdi_simbridge_kernel" , 
+    aggregate_nets : 
+    [ 
+    ] 
+} 

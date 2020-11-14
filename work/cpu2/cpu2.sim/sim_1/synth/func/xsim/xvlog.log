@@ -1,0 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.sim/sim_1/synth/func/xsim/cpu_tb_func_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module cpu
+INFO: [VRFC 10-311] analyzing module datamem
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-311] analyzing module execute
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module gen_clk
+INFO: [VRFC 10-311] analyzing module gen_clk_clk_wiz_0_0
+INFO: [VRFC 10-311] analyzing module gen_clk_clk_wiz_0_0__gen_clk_clk_wiz_0_0_clk_wiz
+INFO: [VRFC 10-311] analyzing module gen_clk_wrapper
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu_tb

@@ -1,0 +1,6 @@
+0.7
+2020.1
+May 27 2020
+19:59:15
+/home/denjo/risc/source/tb_cpu.v,1605166236,verilog,,,,cpu_tb,,,../../../../../cpu2.srcs/sources_1/bd/gen_clk/ipshared/8b3d,,,,,
+/home/denjo/risc/work/cpu2/cpu2.sim/sim_1/synth/func/xsim/cpu_tb_func_synth.v,1605168593,verilog,,/home/denjo/risc/source/tb_cpu.v,,alu;cpu;datamem;decoder;execute;fetch;gen_clk;gen_clk_clk_wiz_0_0;gen_clk_clk_wiz_0_0__gen_clk_clk_wiz_0_0_clk_wiz;gen_clk_wrapper;glbl;regfile;uart,,,../../../../../cpu2.srcs/sources_1/bd/gen_clk/ipshared/8b3d,,,,,

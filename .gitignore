@@ -5,9 +5,9 @@ work/adder4/*
 work/stateachine/*
 work/vending/*
 work/vivado*
-work/cpu2/*
 work/cpu/*
-work/*
+work/cpu99/*
+work/cpu_single/*
 ./vivado*
 *.zip
 *.xz

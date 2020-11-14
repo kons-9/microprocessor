@@ -1,0 +1,7 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../cpu2.srcs/sources_1/bd/gen_clk/ipshared/8b3d" \
+"cpu_tb_func_synth.v" \
+"../../../../../../../source/tb_cpu.v" \
+
+# Do not sort compile order
+nosort
