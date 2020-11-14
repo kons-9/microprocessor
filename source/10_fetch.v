@@ -15,10 +15,10 @@ module fetch(
 
 
     //parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
-    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
+    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
-    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
 
@@ -26,8 +26,10 @@ module fetch(
         $readmemh(FILENAME, ir_mem);
     end
 
+    wire [31:0]ir_addr = next_pc>>2; 
+
     always@(posedge clk)begin
-       ir <= ir_mem[next_pc>>2];
+       ir <= ir_mem[ir_addr];
     end
     
     always@(posedge clk)begin

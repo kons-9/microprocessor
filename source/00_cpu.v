@@ -25,11 +25,11 @@ module cpu(
     reg fclk,dclk,eclk,mclk,wclk;
 
     initial begin
-        fclk<=1;
+        fclk<=0;
         dclk<=0;
         eclk<=0;
         mclk<=0;
-        wclk<=0;
+        wclk<=1;
     end
 
     always@(posedge sysclk)begin
