@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="39">
   <CompositeFile CompositeFileTopName="gen_clk" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1605065300"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1605065300"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1605065300"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1605065300"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1605395540"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1605395540"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1605395540"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1605395540"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0.xci" Type="IP">
         <Instance HierarchyPath="clk_wiz_0"/>

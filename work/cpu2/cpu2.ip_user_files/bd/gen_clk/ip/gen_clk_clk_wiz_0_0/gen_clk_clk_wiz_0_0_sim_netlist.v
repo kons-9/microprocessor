@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-// Date        : Tue Nov 10 22:02:56 2020
+// Date        : Tue Nov 10 22:02:55 2020
 // Host        : DJ00308 running 64-bit Ubuntu 18.04.5 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top gen_clk_clk_wiz_0_0 -prefix
+//               gen_clk_clk_wiz_0_0_ gen_clk_clk_wiz_0_0_sim_netlist.v
 // Design      : gen_clk_clk_wiz_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -27,7 +27,6 @@ module gen_clk_clk_wiz_0_0
         .clk_out1(clk_out1));
 endmodule
 
-(* ORIG_REF_NAME = "gen_clk_clk_wiz_0_0_clk_wiz" *) 
 module gen_clk_clk_wiz_0_0_gen_clk_clk_wiz_0_0_clk_wiz
    (clk_out1,
     clk_in1);
