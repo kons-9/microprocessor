@@ -1,14 +1,13 @@
 `timescale 1ns / 1ps
 
-`include "00_cpu.v"
-`include "99_define.v"
+`include "99_define.vh"
 
 module cpu_tb;
     reg sysclk;
     reg cpu_resetn;
     wire uart_tx;
 
-    parameter CYC = 2;
+    parameter CYC = 100;
 
     always begin
         #(CYC/2);
@@ -26,7 +25,7 @@ module cpu_tb;
         cpu_resetn = 1'b0;
         #(CYC);
         cpu_resetn = 1'b1;
-        #1000000 $finish;
+        #100000000 $finish;
     end
 
 

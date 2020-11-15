@@ -2,7 +2,7 @@
 // decoder_tb
 //
 
-`include "99_define.v"
+`include "99_define.vh"
 `include "20_decoder.v"
 
 `define assert(name, signal, value) \

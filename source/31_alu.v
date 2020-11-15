@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-`include "99_define.v"
+`include "99_define.vh"
 
 module alu(
     input wire [31:0]r1,

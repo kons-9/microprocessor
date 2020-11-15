@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
-`include "41_load.v"
-`include "99_define.v"
+
+`include "99_define.vh"
 
 module datamem(
     input wire clk,
@@ -28,7 +28,7 @@ module datamem(
     wire [31:0]addr_data;
     wire [31:0]load_data;
     
-    integer i;
+//    integer i;
 
     assign byte_addr = {{3{alu_result[31]}},alu_result[30:2]};// division by 4(because word length is 4byte)
     assign addr_rem = alu_result[1:0];// mod 4
@@ -42,11 +42,11 @@ module datamem(
 
         .data(load_data)
     );
-    // parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex";
+     parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex";
 
     initial begin
-        for (i=0; i < 32768; i = i+1)begin datamem[i] <= 32'h00000000;end
-        // $readmemh(FILENAME, datamem);
+//        for (i=0; i <= 32768; i = i+1)begin datamem[i] <= 32'h00000000;end
+         $readmemh(FILENAME, datamem);
     end
 
     always@(posedge clk)begin

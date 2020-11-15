@@ -15,9 +15,7 @@
         `assert("npc", npc, ex_npc) \
         $display("%s test passed\n", name); 
 
-`include "99_define.v"
-`include "32_gen_branch_signal.v"
-`include "33_sequencer.v"
+`include "99_define.vh"
 
 module gen_next_pc_tb;
     reg [3:0]info_branch;

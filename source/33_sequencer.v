@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-`include "99_define.v"
+`include "99_define.vh"
 
 module sequencer(
     input wire branch_signal,

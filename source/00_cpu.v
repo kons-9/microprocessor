@@ -1,14 +1,6 @@
 `timescale 1ns / 1ps
 
-`include "10_fetch.v"
-`include "20_decoder.v"
-`include "30_execute.v"
-`include "40_datamem.v"
-`include "50_writeback.v"
-`include "99_define.v"
-`include "99_regfile.v"
-`include "99_uart.v"
-`include "99_hardware_counter.v"
+`include "99_define.vh"
 
 module cpu(
     input wire sysclk,
@@ -205,7 +197,7 @@ module cpu(
     // wire [31:0] hc_OUT_data;
 
     hardware_counter hardware_counter0(
-        .CLK_IP(sysclk),
+        .CLK_IP(fclk),
         .RSTN_IP(cpu_resetn),
         .COUNTER_OP(hc_OUT_data)
     );
