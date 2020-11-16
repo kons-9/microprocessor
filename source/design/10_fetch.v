@@ -10,7 +10,7 @@ module fetch(
     output reg [31:0]ir,
     output reg [31:0]pc1
     );
-    wire eq,sl,slu;
+
     reg [31:0]ir_mem[0:16384];
 
 
@@ -20,7 +20,8 @@ module fetch(
 //     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
 //    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
 //     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
-     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark/code.hex";
 
     initial begin
         $readmemh(FILENAME, ir_mem);
@@ -30,9 +31,6 @@ module fetch(
 
     always@(posedge clk)begin
        ir <= ir_mem[ir_addr];
-    end
-    
-    always@(posedge clk)begin
         pc1 <= next_pc;
     end
 
