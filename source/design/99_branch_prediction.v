@@ -8,13 +8,12 @@ module branch_prediction(
     input wire [3:0]info_branch,
 
     output wire failure,
-    output wire success
+    output wire success,
+    output wire is_branch
     );
 
-    wire branch;
-    assign branch = info_branch!=4'b0000;
-
-    assign success = branch & (pcD==branch_pc);
-    assign failure = branch & ~success;
+    assign is_branch = info_branch!=`NOTBRANCH;
+    assign success = is_branch & (pcD==branch_pc);
+    assign failure = is_branch & ~success;
 
 endmodule

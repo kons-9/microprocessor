@@ -12,8 +12,7 @@ module sequencer(
     output wire [31:0]npc
     );
 
-    assign npc = branch_signal ? branch : 
-                    failure ? branch_plus4:notbranch;
+    assign npc = failure ? (branch_signal ? branch : branch_plus4) : notbranch;
 
 endmodule
 

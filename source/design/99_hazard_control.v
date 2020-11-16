@@ -30,10 +30,10 @@ module hazard_control(
     assign forward1E = gen_forward_signal(Ereg1_addr,Mwrite_reg_addr,Wwrite_reg_addr,Mwrite_reg_sig,Wwrite_reg_sig);
     assign forward2E = gen_forward_signal(Ereg2_addr,Mwrite_reg_addr,Wwrite_reg_addr,Mwrite_reg_sig,Wwrite_reg_sig);
     
-    assign stallD = 1'b0;
-    assign stallF = 1'b0;
-    assign flushD = branch_sig;
-    assign flushE = branch_sig;
+    assign stallD = ~reset | 1'b0;
+    assign stallF = ~reset | 1'b0;
+    assign flushD = ~reset | branch_sig;
+    assign flushE = ~reset | branch_sig;
     // gen_flush_signal(branch_sig,stage);
 
     function [1:0]gen_forward_signal;

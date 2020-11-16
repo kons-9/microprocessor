@@ -1,3 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/00_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cpu
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/10_fetch.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fetch
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/11_sequencer.v" into library xil_defaultlib
@@ -24,17 +26,5 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_r
 INFO: [VRFC 10-311] analyzing module regfile
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_uart.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module uart
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/00_cpu.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module cpu
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/design_1/ip/design_1_cpu_0_0/sim/design_1_cpu_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1_cpu_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_clk_wiz.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1_clk_wiz_0_0_clk_wiz
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1_clk_wiz_0_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/design_1/sim/design_1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module design_1_wrapper
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_cpu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cpu_tb

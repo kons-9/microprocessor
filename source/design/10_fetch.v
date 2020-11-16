@@ -6,13 +6,13 @@ module fetch(
     input wire clk,
     input wire reset,
     input wire branch_sig,
-    input wire branch_sigE,
     input wire [31:0]branch_pc,
     input wire [31:0]branch_plus4,
     input wire stallF,
     input wire stallD,
     input wire success,
     input wire failure,
+    input wire branch,
 
     output reg [31:0]ir,
     output reg [31:0]npc
@@ -37,7 +37,6 @@ module fetch(
     
     wire [31:0]next_pc;
     wire [31:0]pcplus4;
-    wire [31:0]npcplus4;
 
     wire [31:0]ir_addr;
     wire [31:0]ir_data;
@@ -77,20 +76,20 @@ module fetch(
     always@(posedge clk or negedge reset)begin
         pc1 <=  reset==1'b0 ? 32'h7FFC:
                 stallF ? pc1:
-                branch_sig ? next_pc:
+                failure ? next_pc:
                 is_predict ? predict:next_pc;
     end
 
     always@(posedge clk)begin
         ir <=   stallD ? ir:
-                branch_sig ? ir_data:
+                failure ? ir_data:
                 is_predict ? predict_ir_data:ir_data;
         npc <= stallD ? npc:
-                branch_sig ? next_pc:
+                failure ? next_pc:
                 is_predict ? predict:next_pc;
 
         pre_branch_pc <= stallD ? pre_branch_pc:
-                            branch_sig ? branch_pc:pre_branch_pc;
+                            branch ? branch_pc:pre_branch_pc;
 
         stage <= success?(pre_plus4 ? ((stage[0]==1'b1)?stage:{{1'b0},stage[3:1]}):((stage[3]==1'b1)?stage:{stage[2:0],{1'b0}})):
                 failure? (pre_plus4 ? {stage[2:0],{1'b0}}:{{1'b0},stage[3:1]}) : stage;

@@ -16,7 +16,6 @@ module cpu(
 
     wire [31:0]ir;
     wire branch_sig;
-    wire branch_signal;
     wire stallF;
     wire stallD;
     wire [31:0]branch_pc;
@@ -24,19 +23,20 @@ module cpu(
     wire [31:0]npc;
     wire success;
     wire failure;
+    wire is_branch;
 
     //fetch
     fetch fetch0(
         .clk(sysclk),
         .reset(cpu_resetn),
-        .branch_sig(branch_signal),
-        .branch_sigE(branch_sig),
+        .branch_sig(branch_sig),
         .branch_pc(branch_pc),
-        .branch_plus4(branch_pluss4),
+        .branch_plus4(branch_plus4),
         .stallF(stallF),
         .stallD(stallD),
         .success(success),
         .failure(failure),
+        .branch(is_branch),
 
         .ir(ir),
         .npc(npc)
@@ -127,7 +127,8 @@ module cpu(
         .info_loadE(info_loadE),//unused
         .info_storeE(info_storeE),//unused
         .dstreg_addrE(dstreg_addrE),
-        .branch_pc(branch_pc)
+        .branch_pc(branch_pc),
+        .pc_plus4(branch_plus4)
     );
 
     wire w_regD;
@@ -169,10 +170,11 @@ module cpu(
     branch_prediction branch_prediction0(
         .pcD(pc2),
         .branch_pc(branch_pc),
-        .branch_sig(branch_sig),
+        .info_branch(info_branch),
         
-        .branch_signal(branch_signal),
-        .success(success)
+        .failure(failure),
+        .success(success),
+        .is_branch(is_branch)
     );
 
     hazard_control hazard_control0(
@@ -184,7 +186,7 @@ module cpu(
         .Mwrite_reg_sig(write_regE),
         .Wwrite_reg_addr(dst_addrD),
         .Wwrite_reg_sig(w_regD),
-        .branch_sig(branch_signal),
+        .branch_sig(failure),
         
         .forward1E(forward_sig1),
         .forward2E(forward_sig2),
