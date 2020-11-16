@@ -1,0 +1,289 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Oct 31 16:04:50 2020
+# Process ID: 16807
+# Current directory: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis
+# Command line: vivado
+# Log file: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/vivado.log
+# Journal file: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/denjo/risc/work/stateachine/stateachine.xpr
+Scanning sources...
+Finished scanning sources
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/denjo/risc/work/stateachine/stateachine.srcs/sources_1'.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.1/data/ip'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'cpu_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj cpu_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_define.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/32_gen_branch_signal.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/33_sequencer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/31_alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/30_execute.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'alu' [/home/denjo/risc/source/31_alu.v:5]
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'gen_branch_signal' [/home/denjo/risc/source/32_gen_branch_signal.v:5]
+INFO: [VRFC 10-311] analyzing module sequencer
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'sequencer' [/home/denjo/risc/source/33_sequencer.v:5]
+INFO: [VRFC 10-311] analyzing module execute
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/20_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/41_load.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/00_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module decoder
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'decoder' [/home/denjo/risc/source/20_decoder.v:5]
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module execute
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'execute' [/home/denjo/risc/source/30_execute.v:7]
+INFO: [VRFC 10-311] analyzing module load
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'load' [/home/denjo/risc/source/41_load.v:5]
+INFO: [VRFC 10-311] analyzing module datamem
+INFO: [VRFC 10-311] analyzing module writeback
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module hardware_counter
+INFO: [VRFC 10-311] analyzing module cpu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/10_fetch.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fetch
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'fetch' [/home/denjo/risc/source/10_fetch.v:5]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'regfile' [/home/denjo/risc/source/99_regfile.v:5]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/40_datamem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-311] analyzing module datamem
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'datamem' [/home/denjo/risc/source/40_datamem.v:5]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/50_writeback.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module writeback
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'writeback' [/home/denjo/risc/source/50_writeback.v:3]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'uart' [/home/denjo/risc/source/99_uart.v:1]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_hardware_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hardware_counter
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'hardware_counter' [/home/denjo/risc/source/99_hardware_counter.v:6]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_gen_next_pc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module gen_next_pc_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_alu.v" into library xil_defaultlib
+WARNING: [VRFC 10-3507] macro 'test' redefined [/home/denjo/risc/source/tb_alu.v:18]
+INFO: [VRFC 10-311] analyzing module alu_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module execute
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-311] analyzing module datamem
+INFO: [VRFC 10-311] analyzing module writeback
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module hardware_counter
+INFO: [VRFC 10-311] analyzing module cpu
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'cpu' [/home/denjo/risc/source/00_cpu.v:13]
+INFO: [VRFC 10-311] analyzing module cpu_tb
+WARNING: [VRFC 10-2659] decimal constant 10000000000 is too large, should be smaller than 2147483648; using 1410065408 instead [/home/denjo/risc/source/tb_cpu.v:29]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+xelab -wto 9ed86b29a9cd4f58a2d1e6f278b2fde0 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_tb_behav xil_defaultlib.cpu_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.1/bin/unwrapped/lnx64.o/xelab -wto 9ed86b29a9cd4f58a2d1e6f278b2fde0 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_tb_behav xil_defaultlib.cpu_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.fetch
+Compiling module xil_defaultlib.decoder
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.gen_branch_signal
+Compiling module xil_defaultlib.sequencer
+Compiling module xil_defaultlib.execute
+Compiling module xil_defaultlib.load
+Compiling module xil_defaultlib.datamem
+Compiling module xil_defaultlib.writeback
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.hardware_counter
+Compiling module xil_defaultlib.uart
+Compiling module xil_defaultlib.cpu
+Compiling module xil_defaultlib.cpu_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot cpu_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "cpu_tb_behav -key {Behavioral:sim_1:Functional:cpu_tb} -tclbatch {cpu_tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+source cpu_tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'cpu_tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 7247.211 ; gain = 124.832 ; free physical = 5470 ; free virtual = 13812
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'cpu_tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-100] Fetching design files from 'sources_1'...(this may take a while)...
+INFO: [USF-XSim-101] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+xvlog --incr --relax -prj cpu_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_define.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/32_gen_branch_signal.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/33_sequencer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/31_alu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/30_execute.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module alu
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'alu' [/home/denjo/risc/source/31_alu.v:5]
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'gen_branch_signal' [/home/denjo/risc/source/32_gen_branch_signal.v:5]
+INFO: [VRFC 10-311] analyzing module sequencer
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'sequencer' [/home/denjo/risc/source/33_sequencer.v:5]
+INFO: [VRFC 10-311] analyzing module execute
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/20_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/41_load.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/00_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module decoder
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'decoder' [/home/denjo/risc/source/20_decoder.v:5]
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module execute
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'execute' [/home/denjo/risc/source/30_execute.v:7]
+INFO: [VRFC 10-311] analyzing module load
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'load' [/home/denjo/risc/source/41_load.v:5]
+INFO: [VRFC 10-311] analyzing module datamem
+INFO: [VRFC 10-311] analyzing module writeback
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module hardware_counter
+INFO: [VRFC 10-311] analyzing module cpu
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/10_fetch.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fetch
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'fetch' [/home/denjo/risc/source/10_fetch.v:5]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module regfile
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'regfile' [/home/denjo/risc/source/99_regfile.v:5]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/40_datamem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-311] analyzing module datamem
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'datamem' [/home/denjo/risc/source/40_datamem.v:5]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/50_writeback.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module writeback
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'writeback' [/home/denjo/risc/source/50_writeback.v:3]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'uart' [/home/denjo/risc/source/99_uart.v:1]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_hardware_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module hardware_counter
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'hardware_counter' [/home/denjo/risc/source/99_hardware_counter.v:6]
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_gen_next_pc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module gen_next_pc_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_alu.v" into library xil_defaultlib
+WARNING: [VRFC 10-3507] macro 'test' redefined [/home/denjo/risc/source/tb_alu.v:18]
+INFO: [VRFC 10-311] analyzing module alu_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/tb_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fetch
+INFO: [VRFC 10-311] analyzing module decoder
+INFO: [VRFC 10-311] analyzing module alu
+INFO: [VRFC 10-311] analyzing module gen_branch_signal
+INFO: [VRFC 10-311] analyzing module sequencer
+INFO: [VRFC 10-311] analyzing module execute
+INFO: [VRFC 10-311] analyzing module load
+INFO: [VRFC 10-311] analyzing module datamem
+INFO: [VRFC 10-311] analyzing module writeback
+INFO: [VRFC 10-311] analyzing module regfile
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-311] analyzing module hardware_counter
+INFO: [VRFC 10-311] analyzing module cpu
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'cpu' [/home/denjo/risc/source/00_cpu.v:13]
+INFO: [VRFC 10-311] analyzing module cpu_tb
+WARNING: [VRFC 10-2659] decimal constant 10000000000 is too large, should be smaller than 2147483648; using 1410065408 instead [/home/denjo/risc/source/tb_cpu.v:29]
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/denjo/risc/work/stateachine/stateachine.sim/sim_1/behav/xsim'
+xelab -wto 9ed86b29a9cd4f58a2d1e6f278b2fde0 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_tb_behav xil_defaultlib.cpu_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.1/bin/unwrapped/lnx64.o/xelab -wto 9ed86b29a9cd4f58a2d1e6f278b2fde0 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot cpu_tb_behav xil_defaultlib.cpu_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.fetch
+Compiling module xil_defaultlib.decoder
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.gen_branch_signal
+Compiling module xil_defaultlib.sequencer
+Compiling module xil_defaultlib.execute
+Compiling module xil_defaultlib.load
+Compiling module xil_defaultlib.datamem
+Compiling module xil_defaultlib.writeback
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.hardware_counter
+Compiling module xil_defaultlib.uart
+Compiling module xil_defaultlib.cpu
+Compiling module xil_defaultlib.cpu_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot cpu_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 7247.211 ; gain = 0.000 ; free physical = 5486 ; free virtual = 13823
+run all

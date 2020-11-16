@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:35 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Sat Oct 31 16:04:50 2020
+# Process ID: 16807
+# Current directory: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis
+# Command line: vivado
+# Log file: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/vivado.log
+# Journal file: /home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/denjo/risc/work/stateachine/stateachine.xpr
+launch_simulation
+source cpu_tb.tcl
+relaunch_sim
+run all
