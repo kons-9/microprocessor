@@ -20,8 +20,8 @@ module fetch(
 //     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
 //    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
 //     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
-    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
-    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark/code.hex";
+//    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark/code.hex";
 
     initial begin
         $readmemh(FILENAME, ir_mem);

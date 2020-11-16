@@ -1,8 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/practice/adder.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module adder
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/practice/top_module.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module top_module
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/practice/testbench.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module testbench
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/adder4/adder4.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl

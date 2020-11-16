@@ -42,8 +42,8 @@ module datamem(
 
         .data(load_data)
     );
-    parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex";
-    //  parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark/data.hex";
+//    parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/data.hex";
+      parameter FILENAME ="/home/denjo/risc/b3exp/benchmarks/Coremark/data.hex";
 
     initial begin
 //        for (i=0; i <= 32768; i = i+1)begin datamem[i] <= 32'h00000000;end

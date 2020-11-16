@@ -1,8 +1,0 @@
-0.7
-2020.1
-May 27 2020
-19:59:15
-/home/denjo/risc/practice/adder.v,1539169232,verilog,,/home/denjo/risc/practice/top_module.v,,adder,,,,,,,,
-/home/denjo/risc/practice/testbench.v,1539169946,verilog,,,,testbench,,,,,,,,
-/home/denjo/risc/practice/top_module.v,1539169234,verilog,,/home/denjo/risc/practice/testbench.v,,top_module,,,,,,,,
-/home/denjo/risc/work/adder4/adder4.sim/sim_1/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
