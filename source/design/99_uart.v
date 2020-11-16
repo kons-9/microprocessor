@@ -1,3 +1,5 @@
+`timescale 1ps / 1ps
+
 module uart(
    // Outputs
    // uart_busy,   // High means UART is transmitting
