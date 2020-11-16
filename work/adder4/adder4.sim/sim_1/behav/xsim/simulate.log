@@ -1,0 +1,3 @@
+Vivado Simulator 2020.1
+Time resolution is 1 ps
+$finish called at time : 335 ns : File "/home/denjo/risc/practice/testbench.v" Line 72
