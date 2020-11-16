@@ -1,0 +1,21 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../../../source/design" \
+"../../../../../../source/design/10_fetch.v" \
+"../../../../../../source/design/20_decoder.v" \
+"../../../../../../source/design/30_execute.v" \
+"../../../../../../source/design/31_alu.v" \
+"../../../../../../source/design/32_gen_branch_signal.v" \
+"../../../../../../source/design/33_sequencer.v" \
+"../../../../../../source/design/40_datamem.v" \
+"../../../../../../source/design/41_load.v" \
+"../../../../../../source/design/50_writeback.v" \
+"../../../../../../source/design/99_hardware_counter.v" \
+"../../../../../../source/design/99_regfile.v" \
+"../../../../../../source/design/99_uart.v" \
+"../../../../../../source/design/00_cpu.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

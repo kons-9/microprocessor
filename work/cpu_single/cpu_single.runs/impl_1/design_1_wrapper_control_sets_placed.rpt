@@ -1,0 +1,221 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
+| Date         : Tue Nov 17 02:03:10 2020
+| Host         : DJ00308 running 64-bit Ubuntu 18.04.5 LTS
+| Command      : report_control_sets -verbose -file design_1_wrapper_control_sets_placed.rpt
+| Design       : design_1_wrapper
+| Device       : xc7a200t
+---------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   143 |
+|    Minimum number of control sets                        |   143 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    31 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   143 |
+| >= 0 to < 4        |     0 |
+| >= 4 to < 6        |     4 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     2 |
+| >= 14 to < 16      |     0 |
+| >= 16              |   137 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             338 |          190 |
+| No           | No                    | Yes                    |              87 |           31 |
+| No           | Yes                   | No                     |              27 |           11 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              13 |            3 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++-------------------------------------+------------------------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|             Clock Signal            |                        Enable Signal                       |              Set/Reset Signal             | Slice Load Count | Bel Load Count | Bels / Slice |
++-------------------------------------+------------------------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+|  design_1_i/clk_wiz_0/inst/clk_out1 |                                                            |                                           |                2 |              5 |         2.50 |
+|  design_1_i/cpu_0/inst/dclk_BUFG    |                                                            | design_1_i/cpu_0/inst/fetch0/ir_reg_0_4_0 |                2 |              5 |         2.50 |
+|  design_1_i/cpu_0/inst/dclk_BUFG    |                                                            | design_1_i/cpu_0/inst/fetch0/ir_reg_0_0_0 |                2 |              5 |         2.50 |
+|  design_1_i/cpu_0/inst/dclk_BUFG    |                                                            | design_1_i/cpu_0/inst/fetch0/ir_reg_0_0_1 |                2 |              5 |         2.50 |
+|  design_1_i/cpu_0/inst/dclk_BUFG    |                                                            | design_1_i/cpu_0/inst/fetch0/ir_reg_0_1_0 |                5 |             12 |         2.40 |
+|  design_1_i/cpu_0/inst/wclk_BUFG    | design_1_i/cpu_0/inst/execute0/E[0]                        | design_1_i/cpu_0/inst/uart0/cpu_resetn_0  |                3 |             13 |         4.33 |
+|  design_1_i/cpu_0/inst/fclk_BUFG    |                                                            |                                           |               20 |             32 |         1.60 |
+|  design_1_i/cpu_0/inst/fclk_BUFG    |                                                            | design_1_i/cpu_0/inst/uart0/cpu_resetn_0  |                8 |             32 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_11       |                                           |                8 |             32 |         4.00 |
+|  design_1_i/cpu_0/inst/wclk_BUFG    |                                                            |                                           |               14 |             38 |         2.71 |
+|  design_1_i/cpu_0/inst/wclk_BUFG    |                                                            | design_1_i/cpu_0/inst/uart0/cpu_resetn_0  |               23 |             55 |         2.39 |
+|  design_1_i/cpu_0/inst/dclk_BUFG    |                                                            |                                           |               33 |             68 |         2.06 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    |                                                            |                                           |               45 |             70 |         1.56 |
+|  design_1_i/clk_wiz_0/inst/clk_out1 | design_1_i/cpu_0/inst/writeback0/p_0_in                    |                                           |               12 |             96 |         8.00 |
+|  design_1_i/cpu_0/inst/eclk_BUFG    |                                                            |                                           |               76 |            125 |         1.64 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_3        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_15       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_4        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_5        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_6        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_7        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_8        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_9        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_1        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_10       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_7        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_12       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_13       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_14       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__0_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_1        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[13]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_7        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_9        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_3        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__3_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__3_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_5        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep_1    |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep_2    |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__2_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__6_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__1_0 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__6_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_30       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_6        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_5        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_9        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_8        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_7        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_6        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_5        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_4        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_36       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_35       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_34       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_33       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_32       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_31       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_16       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_3        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_29       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_28       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_27       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_26       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_25       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_24       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_23       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_22       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_21       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_20       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_19       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_18       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_17       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_6        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_5        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_6        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_7        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_8        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_9        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_3        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_12       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_11       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_10       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_1        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[16]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_9        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_8        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_7        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_10       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_5        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_4        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_3        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_17       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_16       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_15       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_14       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_13       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_12       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_11       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_10       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[15]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_9        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_8        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__0_4 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_4        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__6_0 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_3        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_10       |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__3_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__3_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__4_0 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_6        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__2_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__2_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__0_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__0_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__0_3 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[17]_1        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__1_0 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[12]_1        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep_1    |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep_2    |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__1_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__1_3 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__1_4 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__4_3 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_2        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_1        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_0        |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[0]_0         |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[10]_rep__4_2 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[11]_rep__4_1 |                                           |               32 |            128 |         4.00 |
+|  design_1_i/cpu_0/inst/mclk_BUFG    | design_1_i/cpu_0/inst/execute0/alu_result_reg[14]_37       |                                           |               32 |            128 |         4.00 |
++-------------------------------------+------------------------------------------------------------+-------------------------------------------+------------------+----------------+--------------+
+
+
