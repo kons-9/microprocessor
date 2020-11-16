@@ -33,8 +33,13 @@ module execute(
     output reg write_regE,
     output reg [2:0]info_loadE,
     output reg [1:0]info_storeE,
-    output reg [4:0]dstreg_addrE
+    output reg [4:0]dstreg_addrE,
+    output reg [31:0]pc_plus4
     );
+    initial begin
+        branch_pc <= 32'b0;
+        branch_signal <= 1'b0;
+    end
 
     wire [31:0] ans;
     wire [31:0]alu_var1;
@@ -68,8 +73,8 @@ module execute(
         .branch_signal(branch_sig)
     );
 
-    wire [31:0]notbranch;
-    assign notbranch = pc+4;
+    wire [31:0]pcplus4_wire;
+    assign pcplus4_wire = pc+4;
 
     always@(posedge clk)begin
         if(flush)begin
@@ -82,17 +87,19 @@ module execute(
             alu_result <= alu_result;
             branch_signal <= 1'b0;
             branch_pc <= 32'd0;
+            pc_plus4 <= 32'd0;
         end
         else begin
             case(info_branch)
                 `BJAL,`BJALR:begin 
-                    alu_result <= notbranch;
+                    alu_result <= pcplus4_wire;
                 end
                 default:begin 
                     alu_result <= ans;
                 end
             endcase
             branch_pc <= ans;
+            pc_plus4 <= pcplus4_wire;
             branch_signal <= branch_sig;
             rs2E <= alu_var2;
             write_regE <= write_reg;

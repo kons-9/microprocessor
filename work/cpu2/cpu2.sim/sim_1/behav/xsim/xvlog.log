@@ -1,28 +1,30 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/10_fetch.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/10_fetch.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module fetch
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/11_sequencer.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/11_sequencer.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module sequencer
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/20_decoder.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/20_decoder.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module decoder
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/30_execute.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/30_execute.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module execute
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/31_alu.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/31_alu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module alu
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/32_gen_branch_signal.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/32_gen_branch_signal.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module gen_branch_signal
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/40_datamem.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/40_datamem.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module datamem
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/41_load.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/41_load.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module load
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_hardware_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_branch_prediction.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module branch_prediction
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_hardware_counter.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hardware_counter
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_hazard_control.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_hazard_control.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module hazard_control
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_regfile.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_regfile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module regfile
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/99_uart.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/99_uart.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module uart
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/00_cpu.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/source/design/00_cpu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module cpu
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/denjo/risc/work/cpu2/cpu2.ip_user_files/bd/design_1/ip/design_1_cpu_0_0/sim/design_1_cpu_0_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module design_1_cpu_0_0

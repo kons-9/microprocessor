@@ -39,6 +39,7 @@ module decoder(
         dstreg_num <= {{5{1'b0}}};
         Ereg1_addr <= {{5{1'b0}}};
         Ereg2_addr <= {{5{1'b0}}};
+        pc2 <= 32'b0;
     end
 
     assign srcreg1_num = ir[19:15];

@@ -32,7 +32,7 @@ module hazard_control(
     
     assign stallD = 1'b0;
     assign stallF = 1'b0;
-    assign flushD = branch_sig ;
+    assign flushD = branch_sig;
     assign flushE = branch_sig;
     // gen_flush_signal(branch_sig,stage);
 
