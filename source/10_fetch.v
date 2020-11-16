@@ -1,7 +1,6 @@
 `timescale 1ns / 1ps
 
-`include "99_define.v"
-// `include "11_sequencer.v"
+`include "99_define.vh"
 
 module fetch(
     input wire clk,
@@ -20,9 +19,9 @@ module fetch(
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
-     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
+//     parameter FILENAME = "/home/?denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
-//    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
 
     reg [31:0]ir_mem[0:16384];
     initial begin
@@ -40,14 +39,14 @@ module fetch(
 
     assign ir_addr = {{2{1'b0}},next_pc[31:2]};
 
-    // sequencer sequencer0(
-    //     .branch_signal(branch_sig),
-    //     .branch(branch_pc),
-    //     .notbranch(pcplus4),
+    sequencer sequencer0(
+        .branch_signal(branch_sig),
+        .branch(branch_pc),
+        .notbranch(pcplus4),
         
-    //     .npc(next_pc)
-    // );
-    assign next_pc = branch_sig ? branch_pc : pcplus4;
+        .npc(next_pc)
+    );
+    // assign next_pc = branch_sig ? branch_pc : pcplus4;
     
     always@(posedge clk or negedge reset)begin
         pc1 <=  reset==1'b0 ? 32'h7FFC:

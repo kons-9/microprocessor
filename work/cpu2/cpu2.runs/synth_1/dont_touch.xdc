@@ -3,10 +3,13 @@
 
 # XDC: /home/denjo/risc/practice/nexys.xdc
 
-# Block Designs: bd/gen_clk/gen_clk.bd
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gen_clk || ORIG_REF_NAME==gen_clk} -quiet] -quiet
+# Block Designs: bd/design_1/design_1.bd
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1 || ORIG_REF_NAME==design_1} -quiet] -quiet
 
-# IP: bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==gen_clk_clk_wiz_0_0 || ORIG_REF_NAME==gen_clk_clk_wiz_0_0} -quiet] -quiet
+# IP: bd/design_1/ip/design_1_cpu_0_0/design_1_cpu_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_cpu_0_0 || ORIG_REF_NAME==design_1_cpu_0_0} -quiet] -quiet
 
-# XDC: bd/gen_clk/gen_clk_ooc.xdc
+# IP: bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==design_1_clk_wiz_0_0 || ORIG_REF_NAME==design_1_clk_wiz_0_0} -quiet] -quiet
+
+# XDC: bd/design_1/design_1_ooc.xdc

@@ -11,9 +11,9 @@ Time Resolution for simulation is 1ps
 Compiling module unisims_ver.IBUF
 Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
 Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.gen_clk_clk_wiz_0_0_clk_wiz
-Compiling module xil_defaultlib.gen_clk_clk_wiz_0_0
-Compiling module xil_defaultlib.gen_clk
+Compiling module xil_defaultlib.design_1_clk_wiz_0_0_clk_wiz
+Compiling module xil_defaultlib.design_1_clk_wiz_0_0
+Compiling module xil_defaultlib.sequencer
 Compiling module xil_defaultlib.fetch
 Compiling module xil_defaultlib.decoder
 Compiling module xil_defaultlib.alu
@@ -26,7 +26,9 @@ Compiling module xil_defaultlib.hazard_control
 Compiling module xil_defaultlib.hardware_counter
 Compiling module xil_defaultlib.uart
 Compiling module xil_defaultlib.cpu
-Compiling module xil_defaultlib.gen_clk_wrapper
+Compiling module xil_defaultlib.design_1_cpu_0_0
+Compiling module xil_defaultlib.design_1
+Compiling module xil_defaultlib.design_1_wrapper
 Compiling module xil_defaultlib.cpu_tb
 Compiling module xil_defaultlib.glbl
 Built simulation snapshot cpu_tb_behav

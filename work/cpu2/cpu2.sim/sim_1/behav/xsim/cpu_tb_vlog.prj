@@ -1,13 +1,23 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../cpu2.srcs/sources_1/bd/gen_clk/ipshared/8b3d" \
-"../../../../cpu2.ip_user_files/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0_clk_wiz.v" \
-"../../../../cpu2.ip_user_files/bd/gen_clk/ip/gen_clk_clk_wiz_0_0/gen_clk_clk_wiz_0_0.v" \
-"../../../../cpu2.ip_user_files/bd/gen_clk/sim/gen_clk.v" \
-"../../../../../../source/00_cpu.v" \
+verilog xil_defaultlib  --include "../../../../../../source" --include "../../../../cpu2.srcs/sources_1/bd/design_1/ipshared/8b3d" \
+"../../../../../../source/10_fetch.v" \
+"../../../../../../source/11_sequencer.v" \
+"../../../../../../source/20_decoder.v" \
+"../../../../../../source/30_execute.v" \
 "../../../../../../source/31_alu.v" \
 "../../../../../../source/32_gen_branch_signal.v" \
+"../../../../../../source/40_datamem.v" \
 "../../../../../../source/41_load.v" \
-"../../../../cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v" \
+"../../../../../../source/99_hardware_counter.v" \
+"../../../../../../source/99_hazard_control.v" \
+"../../../../../../source/99_regfile.v" \
+"../../../../../../source/99_uart.v" \
+"../../../../../../source/00_cpu.v" \
+"../../../../cpu2.ip_user_files/bd/design_1/ip/design_1_cpu_0_0/sim/design_1_cpu_0_0.v" \
+"../../../../cpu2.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0_clk_wiz.v" \
+"../../../../cpu2.ip_user_files/bd/design_1/ip/design_1_clk_wiz_0_0/design_1_clk_wiz_0_0.v" \
+"../../../../cpu2.ip_user_files/bd/design_1/sim/design_1.v" \
+"../../../../cpu2.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v" \
 "../../../../../../source/tb_cpu.v" \
 
 # compile glbl module

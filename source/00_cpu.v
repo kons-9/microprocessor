@@ -1,17 +1,6 @@
 `timescale 1ns / 1ps
 
-`include "10_fetch.v"
-`include "20_decoder.v"
-`include "30_execute.v"
-`include "31_alu.v"
-`include "32_gen_branch_signal.v"
-`include "40_datamem.v"
-`include "41_load.v"
-`include "99_define.v"
-`include "99_regfile.v"
-`include "99_uart.v"
-`include "99_hazard_control.v"
-`include "99_hardware_counter.v"
+`include "99_define.vh"
 
 module cpu(
     input wire sysclk,
