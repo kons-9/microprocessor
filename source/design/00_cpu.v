@@ -128,7 +128,8 @@ module cpu(
         .info_storeE(info_storeE),//unused
         .dstreg_addrE(dstreg_addrE),
         .branch_pc(branch_pc),
-        .pc_plus4(branch_plus4)
+        .pc_plus4(branch_plus4),
+        .is_branch(is_branch)
     );
 
     wire w_regD;
@@ -170,11 +171,12 @@ module cpu(
     branch_prediction branch_prediction0(
         .pcD(pc2),
         .branch_pc(branch_pc),
-        .info_branch(info_branch),
+        .is_branch(is_branch),
+        .branch_sig(branch_sig),
+        .branch_plus4(branch_plus4),
         
         .failure(failure),
-        .success(success),
-        .is_branch(is_branch)
+        .success(success)
     );
 
     hazard_control hazard_control0(

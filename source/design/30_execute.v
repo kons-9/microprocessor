@@ -34,11 +34,13 @@ module execute(
     output reg [2:0]info_loadE,
     output reg [1:0]info_storeE,
     output reg [4:0]dstreg_addrE,
-    output reg [31:0]pc_plus4
+    output reg [31:0]pc_plus4,
+    output reg is_branch
     );
     initial begin
         branch_pc <= 32'b0;
         branch_signal <= 1'b0;
+        is_branch<=`FALSE;
     end
 
     wire [31:0] ans;
@@ -88,6 +90,7 @@ module execute(
             branch_signal <= 1'b0;
             branch_pc <= 32'd0;
             pc_plus4 <= 32'd0;
+            is_branch <= `FALSE;
         end
         else begin
             case(info_branch)
@@ -106,6 +109,7 @@ module execute(
             info_loadE <= info_load;
             info_storeE <= info_store;
             dstreg_addrE <= dstreg_addr;
+            is_branch <= info_branch!=`NOTBRANCH;
         end
     end 
 endmodule

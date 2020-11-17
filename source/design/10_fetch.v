@@ -20,13 +20,13 @@ module fetch(
     // wire success = 1'b1;
     
 
-    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
-//     parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ControlTransfer/code.hex";
+    // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegImm/code.hex";
     //  parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/IntRegReg/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/LoadAndStore/code.hex";
 //     parameter FILENAME = "/home/?denjo/risc/b3exp/benchmarks/tests/Uart/code.hex";
     // parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/tests/ZeroRegister/code.hex";
-//    parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
+   parameter FILENAME = "/home/denjo/risc/b3exp/benchmarks/Coremark_for_Synthesis/code.hex";
 
     reg [31:0]ir_mem[0:16384];
     initial begin
@@ -49,7 +49,7 @@ module fetch(
     //for prediction
     reg [3:0]stage;//one-hot
     reg [31:0] pre_branch_pc;
-    wire pre_plus4 =stage[0]|stage[1];
+    wire pre_plus4 =stage[0]||stage[1];
     wire [31:0]predict = pre_plus4?pcplus4:pre_branch_pc;
     wire [31:0]predict_ir_addr = {{2{1'b0}},predict[31:2]};
     wire [31:0]predict_ir_data = ir_mem[predict_ir_addr];

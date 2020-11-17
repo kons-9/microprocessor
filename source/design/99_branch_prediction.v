@@ -5,15 +5,18 @@
 module branch_prediction(
     input wire [31:0]pcD,
     input wire [31:0]branch_pc,
-    input wire [3:0]info_branch,
+    input wire is_branch,
+    input wire branch_sig,
+    input wire branch_plus4,
 
     output wire failure,
-    output wire success,
-    output wire is_branch
-    );
+    output wire success
 
-    assign is_branch = info_branch!=`NOTBRANCH;
-    assign success = is_branch & (pcD==branch_pc);
+    );
+    wire branch;
+    
+    assign branch = branch_sig ? (pcD == branch_pc):(pcD == branch_plus4);
+    assign success = is_branch & branch;
     assign failure = is_branch & ~success;
 
 endmodule
