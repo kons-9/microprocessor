@@ -15,7 +15,7 @@
         `assert("npc", npc, ex_npc) \
         $display("%s test passed\n", name); 
 
-`include "99_define.v"
+`include "99_define.vh"
 `include "32_gen_branch_signal.v"
 `include "11_sequencer.v"
 

@@ -1,7 +1,5 @@
 `timescale 1ns / 1ps
 
-`include "31_alu.v"
-`include "32_gen_branch_signal.v"
 
 module execute(
     input wire clk,

@@ -16,7 +16,7 @@
         `assert("result", result, ex_result) \
         $display("%s test passed\n", name); \
 
-`include "99_define.v"
+`include "99_define.vh"
 
 module alu_tb;
 

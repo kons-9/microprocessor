@@ -1,7 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../cpu2.srcs/sources_1/bd/gen_clk/ipshared/8b3d" \
-"../../../../../../source/00_cpu.v" \
-"../../../../cpu2.srcs/sources_1/bd/gen_clk/hdl/gen_clk_wrapper.v" \
+verilog xil_defaultlib  --include "../../../../../../source/design" \
 "../../../../../../source/tb_cpu.v" \
 
 # compile glbl module
