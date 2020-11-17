@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../../source/99_define.v" \
+"../../../../../../source/32_gen_branch_signal.v" \
+"../../../../../../source/33_sequencer.v" \
+"../../../../../../source/31_alu.v" \
+"../../../../../../source/tb_gen_next_pc.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
