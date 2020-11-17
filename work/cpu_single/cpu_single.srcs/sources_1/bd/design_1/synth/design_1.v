@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.1 (lin64) Build 2902540 Wed May 27 19:54:35 MDT 2020
-//Date        : Tue Nov 17 01:57:48 2020
+//Date        : Tue Nov 17 02:36:10 2020
 //Host        : DJ00308 running 64-bit Ubuntu 18.04.5 LTS
 //Command     : generate_target design_1.bd
 //Design      : design_1
@@ -29,7 +29,7 @@ module design_1
   design_1_clk_wiz_0_0 clk_wiz_0
        (.clk_in1(sysclk_1),
         .clk_out1(clk_wiz_0_clk_out1));
-  design_1_cpu_0_0 cpu_0
+  design_1_cpu_0_1 cpu_0
        (.cpu_resetn(cpu_resetn_1),
         .sysclk(clk_wiz_0_clk_out1),
         .uart_tx(cpu_0_uart_tx));

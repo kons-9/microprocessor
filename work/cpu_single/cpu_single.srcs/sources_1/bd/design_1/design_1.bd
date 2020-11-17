@@ -74,7 +74,7 @@
       },
       "cpu_0": {
         "vlnv": "xilinx.com:module_ref:cpu:1.0",
-        "xci_name": "design_1_cpu_0_0",
+        "xci_name": "design_1_cpu_0_1",
         "reference_info": {
           "ref_type": "hdl",
           "ref_name": "cpu",
@@ -115,6 +115,12 @@
       }
     },
     "nets": {
+      "sysclk_1": {
+        "ports": [
+          "sysclk",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
       "clk_wiz_0_clk_out1": {
         "ports": [
           "clk_wiz_0/clk_out1",
@@ -125,12 +131,6 @@
         "ports": [
           "cpu_resetn",
           "cpu_0/cpu_resetn"
-        ]
-      },
-      "sysclk_1": {
-        "ports": [
-          "sysclk",
-          "clk_wiz_0/clk_in1"
         ]
       },
       "cpu_0_uart_tx": {

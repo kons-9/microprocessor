@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 17 01:57:49 2020" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Tue Nov 17 02:36:11 2020" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:nexys_video:part0:1.1" DEVICE="7a200t" NAME="design_1" PACKAGE="sbg484" SPEEDGRADE="-1"/>
 
@@ -618,7 +618,7 @@
     <MODULE COREREVISION="1" FULLNAME="/cpu_0" HWVERSION="1.0" INSTANCE="cpu_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="cpu" VLNV="xilinx.com:module_ref:cpu:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="Component_Name" VALUE="design_1_cpu_0_0"/>
+        <PARAMETER NAME="Component_Name" VALUE="design_1_cpu_0_1"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
