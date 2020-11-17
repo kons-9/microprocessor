@@ -1,6 +1,9 @@
 # microprocessor
 3Aで行われる楽しい楽しい後期実験(10日)
 
+通常のpipelineや、分岐予測付きのpipeline、掛け算機など付きのpipelineがそれぞれそれっぽい名前のbranchに入っています。
+動作確認はしてありますが実機で焼いたことを確認できたのはこのmain(single_processor)のみです。
+
 1回目10/22 環境構築
 
 2回目10/26
